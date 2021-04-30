@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import UserSelect from '../components/UserSelect.js';
 import Output from '../components/Output.js';
+import NewUser from '../components/NewUser.js';
 // import Diet from '../components/Diet.js';
 // import Flights from '../components/Flights.js';
 // import Heating from '../components/Heating.js';
@@ -95,11 +96,21 @@ const Main = () => {
     }
 
 
+
+    // RENDERING OUR FORMS
+    // CASE: An existing user goes onto the website
+        // Main page - Just has a list. They select themselves
+        // Output page - Shows their output. There's a button to edit their stuff
+        // This then renders the first form Diet.js, and each form in turn, with their default values showing
+    // CASE: A new user is on the site
+        // Main page
+
     return(
         <div>
-            <h1>This is our main container</h1>
+            <h1>Welcome to Project CO2</h1>
+            <h2><i>The Carbon Feets Print calculator</i></h2>
+
             <UserSelect users={users} onSelectedUser={onSelectedUser}/>
-            {/* We then need a Button here to access another form to add a new user */}
 
             {/* If we have selected a User, render their saved Output */}
             {selectedUser ? <Output user={selectedUser}/> : null}

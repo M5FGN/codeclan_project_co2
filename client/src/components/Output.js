@@ -12,7 +12,7 @@ const Output = ({user}) => {
                 <li>Username: {user.username}</li>
                 <li>Full name: {user.forename} {user.surname}</li>
 
-                <ul>Commuting:
+                <ul><b>Commuting</b>
                     <li>Footprint - Commute - Car: {user.footprint.commute.car}</li>
                     <li>Footprint - Commute - Train: {user.footprint.commute.train}</li>
                     <li>Footprint - Commute - Bus: {user.footprint.commute.bus}</li>
