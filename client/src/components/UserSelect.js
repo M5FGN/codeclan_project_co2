@@ -4,12 +4,12 @@ const UserSelect = ({users, onSelectedUser}) => {
 
     // Grabs our users, maps and renders the user name of each one, so a user can click to see their data
     const usersOptions = users.map((user, index) => {
-        return <option value={user} key={index}>{user.username}</option>
+        return <option value={index} key={index}>{user.username}</option>
     });
     
     // When we click on a user, takes in the event, sets chosen User:
-    const handleSelect = (e) => {
-        const chosenUser = users[e.target.value];
+    const handleSelect = (event) => {
+        const chosenUser = users[event.target.value];
         onSelectedUser(chosenUser);
     };
 

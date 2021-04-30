@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import UserSelect from '../components/UserSelect.js';
+import Output from '../components/Output.js';
 // import Diet from '../components/Diet.js';
 // import Flights from '../components/Flights.js';
 // import Heating from '../components/Heating.js';
 // import Recycling from '../components/Recycling.js';
 // import Travel from '../components/Travel.js';
-// import Output from '../components/Output.js';
+
 
 const Main = () => {
   
@@ -65,7 +66,12 @@ const Main = () => {
 
     useEffect(() => {
         getUsers().then( (allUsers) => setUsers(allUsers))
-    });
+    },[]);
+    
+    // Takes in our selected user, and sets selected user state:
+    const onSelectedUser = (user) => {
+        console.log(user)
+        setSelectedUser(user)}
 
     // Grab all our users from the db
     const getUsers = () => {
@@ -88,19 +94,15 @@ const Main = () => {
         setUsers(temp);
     }
 
-    // Grabs our users, maps each one, so it renders the user name of each one, we can click on
-    const usersOptions = users.map((user, index) => {
-        return <option value={user}>{user.username}</option>
-    })
-
-    // Takes in our selected user, and sets selected user state:
-    const onSelectedUser = (user) => setSelectedUser(user);
 
     return(
         <div>
             <h1>This is our main container</h1>
             <UserSelect users={users} onSelectedUser={onSelectedUser}/>
             {/* We then need a Button here to access another form to add a new user */}
+
+            {/* If we have selected a User, render their saved Output */}
+            {selectedUser ? <Output user={selectedUser}/> : null}
         </div>
     )
 }
