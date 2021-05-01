@@ -12,6 +12,7 @@ const NewUser = ({addUser}) => {
     const onChange = (e) => {
         formData[e.target.id] = e.target.value;
         setFormData(formData);
+        // Set all fields to null initially;
     }
 
     const onSubmit = (e) => {

@@ -16,10 +16,10 @@ const Diet = ({user, newData, getDietForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['diet'] = dietData
-        updateUser(user)
-        newData(user)
-        getDietForm(false, user)
+        user.footprint['diet'] = dietData;
+        updateUser(user);
+        newData(user);
+        getDietForm(false, user);
         
     }
 

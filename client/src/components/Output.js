@@ -2,12 +2,7 @@ import React from "react";
 
 const Output = ({user}) => {
 
-
-    // This output will be where all our data is displayed for a given user
-    // I've added in a UL just to render the data we have added, to make sure it is grabable
-    // WE NEED TO:
-        // Only render something if it exists, else it throws an error or will look weird
-        // I.e. each render should be " user.property ? <li> content </li> : null"
+    // Calculatio for the total carbon footprint
 
     return (
         <div>
@@ -25,10 +20,11 @@ const Output = ({user}) => {
                 </ul>
                      */}
 
-                <li>Footprint - Diet: {user.footprint.diet}</li>
-                <li>Footprint - Air travel: {user.footprint.air}</li>
-                <li>Footprint - Heating: {user.footprint.heating}</li>
-                <li>Footprint - Recycling: {user.footprint.recycling}</li>
+                {/* This should be a loop */}
+                {user.footprint.diet ? <li>Footprint - Diet: {user.footprint.diet}</li> : null}
+                {user.footprint.air ? <li>Footprint - Air travel: {user.footprint.air}</li> : null}
+                {user.footprint.heating ? <li>Footprint - Heating: {user.footprint.heating}</li> : null }
+                {user.footprint.recycling ? <li>Footprint - Recycling: {user.footprint.recycling}</li> : null}
             </ul>
         </div>
 
