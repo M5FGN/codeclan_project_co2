@@ -3,22 +3,44 @@ import {updateUser} from '../services/MainService.js'
 
 const Heating = ({user, newData, getHeatingForm}) => {
 
-    const [heatingData, setHeatingData] = useState(null);
+    const [heatingTypeData, setHeatingTypeData] = useState(null);
+    const [numberRoomsData, setNumberRoomsData] = useState(null);
+    const [heatingCarbon, setHeatingCarbon] = useState(null);
 
 
-    const onTypeChange = () => {
-        // Return the calculated value of gas vs electric here
+    const onTypeChange = (e) => {
+        const heatingType = e.target.id;
+        let heating_api = 1;
+        if (heatingType === 'gas'){
+            // API value = 300 kg CO2/year (random guess)
+            heating_api = 300;
+        }
+        else if (heatingType === 'electricity'){
+            // API value = 500 kg CO2/year (random guess)
+            heating_api = 500;
+        }
+        setHeatingTypeData(heating_api);
+        totalCarbon();
     }
 
     const onValueChange = (e) => {
-        const heatingData = e.target.value
+        const numRooms = e.target.value;
+        const carbon = numRooms // Times some value in API
+        setNumberRoomsData(carbon);
+        totalCarbon();
 
-        setHeatingData(heatingData);
     }
+
+    // Some calculation based on total number of rooms, and heating type
+    const totalCarbon = () => {
+        const sum = heatingTypeData * numberRoomsData * 0.2 // Random guess
+        setHeatingCarbon(sum);
+    }
+
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['heating'] = heatingData
+        user.footprint['heating'] = heatingCarbon
         updateUser(user)
         newData(user)
         getHeatingForm(false, user)
