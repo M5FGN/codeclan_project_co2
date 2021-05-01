@@ -36,7 +36,7 @@ const Output = ({user, removeUser}) => {
 
     return (
         <div>
-
+            <p>This is the Output side.</p>
             <ul>
                 <li>Username: {user.username}</li>
                 <li>Full name: {user.forename} {user.surname}</li>
@@ -47,7 +47,7 @@ const Output = ({user, removeUser}) => {
                 {user.footprint.heating !== null ? <li>Footprint - Heating: {user.footprint.heating}</li> : null }
                 {user.footprint.recycling !== null ? <li>Footprint - Recycling: {user.footprint.recycling}</li> : null}
 
-                <ul><b>Commuting</b>
+                <ul>
                 {user.footprint.commute.car !== null ? <li>Footprint - Commute - Car: {user.footprint.commute.car}</li> : null}
                 {user.footprint.commute.train !== null ? <li>Footprint - Commute - Train: {user.footprint.commute.train}</li> : null}
                 {user.footprint.commute.bus !== null ? <li>Footprint - Commute - Bus: {user.footprint.commute.bus}</li> : null}

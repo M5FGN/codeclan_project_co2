@@ -8,6 +8,10 @@ import Travel from '../components/Travel.js';
 import Flights from '../components/Flights.js';
 import Heating from '../components/Heating.js';
 import Recycling from '../components/Recycling.js';
+import InputContainer from '../components/InputContainer.js';
+import OutputContainer from '../components/OutputContainer.js';
+import './main.css';
+
 
 
 const Main = () => {
@@ -122,6 +126,15 @@ const Main = () => {
             <h1>Welcome to Project CO2</h1>
 
             <h2><i>The Carbon Feets Print calculator</i></h2>
+            <div class="input_output">
+
+                <div class="input">
+                    < InputContainer />
+                </div>
+                <div class="output">
+                    < OutputContainer />
+                </div>
+            </div>
 
             <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>
            

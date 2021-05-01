@@ -1,0 +1,15 @@
+.input_output{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.input, .output{
+    width: 620px;
+    margin: 20px;
+    border: 1px solid red;
+} 
+
+
+
