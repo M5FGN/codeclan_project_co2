@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import NewUser from './NewUser.js'
+import React from "react";
 
 const UserSelect = ({users, onSelectedUser, getForm}) => {
 
@@ -17,9 +16,9 @@ const UserSelect = ({users, onSelectedUser, getForm}) => {
     return(
         <div>
             <div>
-                <p> You must have a user account to view data and add your own </p> 
+                <p> You must have a user account to add your own data </p> 
                 <p> Click from your account on the list below, or click 'Create Account'  </p>
-                <button type='submit' value='Create Account' onClick={() => getForm()}>Create Account</button>
+                <button type='submit' value='Create Account' onClick={() => {getForm()}}>Create Account</button>
             </div>
 
             <select defaultValue='' onChange={handleSelect} name='userList'>
