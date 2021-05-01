@@ -29,9 +29,9 @@ const Diet = ({user, newData, getDietForm}) => {
         <div>
 
             <h2>Diet</h2>
-            <h4>Choose the value which best describes your meat consumption ...</h4>
             
             <form id="diet_form" onSubmit={onSubmit}>
+                <h4>Choose the value which best describes your meat consumption ...</h4>
 
                 {/* I have shoved in some values for now to test the submit */}
                 <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value="1000" />

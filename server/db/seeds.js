@@ -1,6 +1,6 @@
 use projectco2;
 
-db.dropDataBase();
+db.dropDatabase();
 
 // This DB is an array of User objects
 // A User has a username, forename, surname, and a footprint object

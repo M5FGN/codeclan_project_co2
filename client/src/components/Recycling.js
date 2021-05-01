@@ -22,9 +22,9 @@ const Recycling = ({user, newData, getRecyclingForm}) => {
 
         <div>
             <h2>Recycling</h2>
-            <h4>Choose the value which best describes your recycling activities ...</h4>
             
             <form id="recycling_form" onSubmit={onSubmit}>
+                <h4>Choose the value which best describes your recycling activities ...</h4>
        
                 <p>
                 <input onChange={onChange} type="radio" name="recycling_level" id="recycling_all" value="10" />

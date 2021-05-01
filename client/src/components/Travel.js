@@ -58,7 +58,7 @@ const Travel = ({user, newData, getTravelForm}) => {
             </p>
 
             <p><input type="number" name="miles_bike" id="miles_bike" max="50" min="0" />
-            <label for="miles_bike">Miles Cycled Bike per day</label>
+            <label for="miles_bike">Miles Cycled per day</label>
             </p>
 
             <p><input type="number" name="miles_walk" id="miles_walk" max="50" min="0" />
