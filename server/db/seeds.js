@@ -1,6 +1,6 @@
 use projectco2;
 
-db.dropDataBase();
+db.dropDatabase();
 
 // This DB is an array of User objects
 // A User has a username, forename, surname, and a footprint object
@@ -26,9 +26,6 @@ db.users.insertMany([
             bus: null,
             cycling: null,
             walk: null,
-            total: 1500
-                // If we want to display a total 'Commuting CO2'
-                // user.footprint.commute.total
         },
         air: 1000, 
             // Calculated from hours in air * CO2/hr
@@ -52,7 +49,6 @@ db.users.insertMany([
        bus: 400,
        cycling: null,
        walk: null,
-       total: 400
     },
     air: 20, 
     diet: 10000, 
@@ -70,7 +66,6 @@ db.users.insertMany([
        bus: 100,
        cycling: null,
        walk: 20,
-       total: 120
     },
     air: 2000, 
     diet: 6000, 
@@ -88,7 +83,6 @@ db.users.insertMany([
        bus: null,
        cycling: 50,
        walk: null,
-       total: 550
     },
     air: null, 
     diet: 100, 

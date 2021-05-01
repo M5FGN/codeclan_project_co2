@@ -41,6 +41,23 @@ const createRouter  = function(collection){
     
   });
 
+  // put one
+  router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedData = req.body;
+    delete updatedData._id;
+
+    collection
+    .updateOne({ _id: ObjectID(id) }, { $set: updatedData })
+    .then(result => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
+
     //delete one
   router.delete('/:id', (req, res) =>{
     const id = req.params.id;
