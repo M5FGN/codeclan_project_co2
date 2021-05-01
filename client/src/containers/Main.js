@@ -11,64 +11,23 @@ import Diet from '../components/Diet.js';
 
 const Main = () => {
   
-    const [users, setUsers] = useState([
-        {username: 'Bigtuna',
-            // This will be used for our list, comparison, or future login option
-        forename: 'Jim',
-        surname: 'Halper',
-        footprint: {
-            commute: {
-                car: 1000, 
-                    //Calculated from miles per day * CO2/mile,  * 365
-                    // user.footprint.commute.car
-                train: 500, 
-                    // As above
-                    // user.footprint.commute.train
-                bus: null,
-                cycling: null,
-                walk: null,
-                total: 1500
-                    // If we want to display a total 'Commuting CO2'
-                    // user.footprint.commute.total
-            },
-            air: 1000, 
-                // Calculated from hours in air * CO2/hr
-                // user.footprint.air
-            diet: 1000, 
-                // Calculated from "x amount of a week = this CO2", * 52 weeks
-                // user.footprint.diet
-            recycling: 500, 
-                // user.footprint.recycling
-            heating: 1000 
-                // user.footprint.heating
-        }},
-    
-        {username: 'Nard Dog',
-        forename: 'Andrew',
-        surname: 'Bernard',
-        footprint: {
-        commute: {
-           car: null, 
-           train: null, 
-           bus: 400,
-           cycling: null,
-           walk: null,
-           total: 400
-        },
-        air: 20, 
-        diet: 10000, 
-        recycling: 2000, 
-        heating: 4000 
-        }}]);
+    const [users, setUsers] = useState([]);
         // The above two examples are just till we hook up with the routers
         // DELETE ONCE DONE
 
     const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
-        getUsers().then( (allUsers) => setUsers(allUsers))
+        getUsers()
     },[]);
     
+     // Grab all our users from the db
+     const getUsers = () => {
+        fetch('http://localhost:5000/users/')
+        .then(res => res.json())
+        .then(allUsers => setUsers(allUsers))
+    };
+
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
@@ -76,26 +35,25 @@ const Main = () => {
         setDietForm(<Diet putUser={putUser} user={user}/>)
     };
 
-    // Grab all our users from the db
-    const getUsers = () => {
-        return fetch('http://localhost:5000/users')
-        .then(res => res.json())
-    };
 
-    // Add a new user
-    const postUser = (data) => {
-        return fetch('http://localhost:5000/users', {
+    // // Add a new user
+    const postUser = (newUser) => {
+            fetch('http://localhost:5000/users/', {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(newUser),
             headers: {'Content-type': 'application/json'}
         })
-        .then(res => res.json())
+        // .then(res => res.json())
+        .then( () => getUsers())
     };
-    const addUser = (user) => {
-        const temp = users.map(newUser => newUser);
-        temp.push(user);
-        setUsers(temp);
-    };
+
+    // const addUser = (user) => {
+    //     const temp = users.map(s => s);
+    //     temp.push(user);
+    //     setUsers(temp);
+    // };
+
+
 
     // Update existing user with new data
     const putUser = (data) => {
@@ -115,7 +73,7 @@ const Main = () => {
     // It also acts as a toggle to display/not display the form
     const getNewUserForm = () => {
         if (newUserForm === null){
-            setNewUserForm(<NewUser addUser={addUser} postUser={postUser}/>)
+            setNewUserForm(<NewUser postUser={postUser}/>)
         }
         else setNewUserForm(null);
     };

@@ -36,7 +36,13 @@ const Diet = ({user, putUser}) => {
         .then( (diet) => {
             user.footprint.diet = diet
         })
+
+        // onDietSubmit({
+        //     diet: dietData
+        // });
     }
+
+
 
     return (
 
