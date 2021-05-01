@@ -85,8 +85,7 @@ const Main = () => {
     const getTravelForm = (toggle, user) => {
         if (toggle === true){
             setTravelForm(<Travel user={user} newData={updateNewData} getTravelForm={getTravelForm}/>)
-        }
-        else if (toggle === false){
+        } else if (toggle === false){
             setTravelForm(null)
             getFlightsForm(true, user)
         }
