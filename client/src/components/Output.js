@@ -1,11 +1,18 @@
 import React from "react";
+import {deleteUser} from '../services/MainService.js';
 
-const Output = ({user}) => {
+const Output = ({user, removeUser}) => {
 
-    // Calculatio for the total carbon footprint
+    // Calculation for the total carbon footprint
+
+    const handleRemove = () => {
+        deleteUser(user._id);
+        removeUser(user._id);
+    }
 
     return (
         <div>
+
             <ul>
                 <li>Username: {user.username}</li>
                 <li>Full name: {user.forename} {user.surname}</li>
@@ -20,12 +27,16 @@ const Output = ({user}) => {
                 </ul>
                      */}
 
-                {/* This should be a loop */}
-                {user.footprint.diet ? <li>Footprint - Diet: {user.footprint.diet}</li> : null}
-                {user.footprint.air ? <li>Footprint - Air travel: {user.footprint.air}</li> : null}
-                {user.footprint.heating ? <li>Footprint - Heating: {user.footprint.heating}</li> : null }
-                {user.footprint.recycling ? <li>Footprint - Recycling: {user.footprint.recycling}</li> : null}
+                {/* This should be a loop, but is only here for example data  */}
+                {user.footprint.diet !== null ? <li>Footprint - Diet: {user.footprint.diet}</li> : null}
+                {user.footprint.air !== null ? <li>Footprint - Air travel: {user.footprint.air}</li> : null}
+                {user.footprint.heating !== null ? <li>Footprint - Heating: {user.footprint.heating}</li> : null }
+                {user.footprint.recycling !== null ? <li>Footprint - Recycling: {user.footprint.recycling}</li> : null}
             </ul>
+
+            <p>To remove your account, click the 'Remove Account' button:</p>
+            <button type='submit' onClick={handleRemove}>Remove Account</button>
+
         </div>
 
     )

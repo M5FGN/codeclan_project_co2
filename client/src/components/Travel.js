@@ -24,23 +24,23 @@ const Travel = ({user, newData, getTravelForm}) => {
             <h4>Choose your mode of travel ...</h4>
             
             <p>
-            <input onChange={onTypeChange} type="radio" name="mode_travel" id="train" value="" />
+            <input onChange={onTypeChange} type="checkbox" name="train" id="train" value="" />
             <label for="train">Train</label>
             </p>
             <p>
-            <input onChange={onTypeChange} type="radio" name="mode_travel" id="bus" value="" />
+            <input onChange={onTypeChange} type="checkbox" name="bus" id="bus" value="" />
             <label for="bus">Bus</label>
             </p>
             <p>
-            <input onChange={onTypeChange} type="radio" name="mode_travel" id="car" value="" />
+            <input onChange={onTypeChange} type="checkbox" name="car" id="car" value="" />
             <label for="car">Car</label>
             </p>
             <p>
-            <input onChange={onTypeChange} type="radio" name="mode_travel" id="bike" value="" />
+            <input onChange={onTypeChange} type="checkbox" name="bike" id="bike" value="" />
             <label for="bike">Bike</label>
             </p>
             <p>
-            <input onChange={onTypeChange} type="radio" name="mode_travel" id="walk" value="" />
+            <input onChange={onTypeChange} type="checkbox" name="walk" id="walk" value="" />
             <label for="walk">Walk</label>
             </p>
  

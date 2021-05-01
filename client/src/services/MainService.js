@@ -23,9 +23,10 @@ export const updateUser = (user) => {
     .then(res => res.json())
 }
 
-// Delete user data will be here as follows:
-// export const deleteUser = (id) => {
-//     return fetch(baseURL + id, {
-//         method: 'DELETE'
-//     })
-// }
+// Wipe user and all user data off the database
+export const deleteUser = (id) => {
+    return fetch(baseURL + id, {
+        method: 'DELETE'
+    })
+    
+}

@@ -30,8 +30,8 @@ const Main = () => {
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
-        setSelectedUser(user)
-        getDietForm(true, user)
+        setSelectedUser(user);
+        getDietForm(true, user);
     };
 
     // Update users list locally when we add a new user
@@ -39,8 +39,16 @@ const Main = () => {
         const temp = users.map(s=>s);
         temp.push(newUser);
         setUsers(temp);
-        // Call function to decide whether to render the form or hide it
         getNewUserForm(false);
+        onSelectedUser(newUser);
+    }
+
+    // Remove user locally
+    const removeUser = (id) => {
+        setUsers(users.filter(user => user._id !== id))
+        // The above will loop through each one and filter out where id doesn't match
+        // Alternatively we can splice it and return new list
+        setSelectedUser(null);
     }
 
     // Update user locally after we add new data
@@ -54,10 +62,11 @@ const Main = () => {
     // Toggle function to hide/display the NewUserForm
     const getNewUserForm = (toggle) => {
         if (toggle === true){
-            setNewUserForm(<NewUser addUser={addUser} />)
+            setNewUserForm(<NewUser addUser={addUser} />);
+            setSelectedUser(null);
         }
         else if (toggle === false){
-            setNewUserForm(null)
+            setNewUserForm(null);
         }
     };
 
@@ -69,19 +78,19 @@ const Main = () => {
         else if (toggle === false){
             setDietForm(null)
             // getTravelForm(true, user)
-            getFlightsForm(true, user)
+            getTravelForm(true, user)
         }
     }
 
-    // const getTravelForm = (toggle, user) => {
-    //     if (toggle === true){
-    //         setTravelForm(<Travel user={user} newData={updateNewData} getTravelForm={getTravelForm}/>)
-    //     }
-    //     else if (toggle === false){
-    //         setTravelForm(null)
-    //         getFlightsForm(true, user)
-    //     }
-    // }
+    const getTravelForm = (toggle, user) => {
+        if (toggle === true){
+            setTravelForm(<Travel user={user} newData={updateNewData} getTravelForm={getTravelForm}/>)
+        }
+        else if (toggle === false){
+            setTravelForm(null)
+            getFlightsForm(true, user)
+        }
+    }
 
     const getFlightsForm = (toggle, user) => {
         if (toggle === true){
@@ -120,16 +129,17 @@ const Main = () => {
             {newUserForm}
 
             {/* If we have selected a User, render their saved Output */}
-            {selectedUser ? <Output user={selectedUser}/>: null}
+            {selectedUser ? <Output user={selectedUser} removeUser={removeUser}/>: null}
 
-
-            <div id='current_rendered_form'>
-                {dietForm}
-                {travelForm}
-                {flightsForm}
-                {heatingForm}
-                {recyclingForm}
-            </div>
+            {selectedUser ?
+                <div id='current_rendered_form'>
+                    {dietForm}
+                    {travelForm}
+                    {flightsForm}
+                    {heatingForm}
+                    {recyclingForm}
+                </div>
+             : null}
         </div>
     )
 }

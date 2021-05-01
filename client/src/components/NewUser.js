@@ -1,24 +1,33 @@
 import React, {useState} from "react";
 import {newUser} from '../services/MainService';
 
-// The purpose of this is so the User can make an account
-// This will then allow their saved data to be access, modified, deleted...
-
 const NewUser = ({addUser}) => {
 
-    // Implement useState, inital formData is empty object, which becomes our new user
-    const [formData, setFormData] = useState({});
+    const [formUserData, setFormUserData] = useState({});
 
     const onChange = (e) => {
-        formData[e.target.id] = e.target.value;
-        setFormData(formData);
-        // Set all fields to null initially;
-    }
+        formUserData[e.target.id] = e.target.value;
+        setFormUserData(formUserData);
+    };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        newUser(formData).then((data) => addUser(data))
-    }
+        formUserData['footprint'] = {
+            commute : {
+                car: null,
+                train: null,
+                bus: null,
+                cycling: null,
+                walk: null
+            },
+            air : null,
+            diet: null,
+            recycling: null,
+            heating: null
+        }
+        newUser(formUserData).then((data) => addUser(data))
+
+    };
 
     return(
         <div>
