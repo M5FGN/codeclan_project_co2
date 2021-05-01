@@ -1,3 +1,19 @@
+body {
+    background-image: url(../components/ProjectCO2.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white {
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    opacity: 90%;
+    border-radius: 10px;
+}
+
 .input_output{
     display: flex;
     flex-direction: row;
@@ -6,7 +22,7 @@
 }
 
 .input, .output{
-    width: 620px;
+    width: 40%;
     margin: 20px;
     border: 1px solid red;
 } 

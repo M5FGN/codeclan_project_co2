@@ -11,7 +11,8 @@ import Recycling from '../components/Recycling.js';
 import InputContainer from '../components/InputContainer.js';
 import OutputContainer from '../components/OutputContainer.js';
 import './main.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPaw } from '@fortawesome/free-solid-svg-icons';
 
 
 const Main = () => {
@@ -122,7 +123,9 @@ const Main = () => {
     }
     
     return(
-        <div>
+        <div class="main">
+            <div class="white">
+            <div><FontAwesomeIcon icon={faPaw} /></div>
             <h1>Welcome to Project CO2</h1>
 
             <h2><i>The Carbon Feets Print calculator</i></h2>
@@ -135,6 +138,7 @@ const Main = () => {
                     < OutputContainer />
                 </div>
             </div>
+            
 
             <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>
            
@@ -152,6 +156,7 @@ const Main = () => {
                     {recyclingForm}
                 </div>
              : null}
+        </div>
         </div>
     )
 }
