@@ -1,13 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Diet = ({user}) => {
-
-    // Code here will be a post request?
-        // OR A PUT REQUEST? Since we are updating a users inputs from the start?
-    // Our result we want is user.footprint.diet = value
-    // diet : 'value' is the key value pair
-    // So our form data useState is going to be null for the value
+const Diet = ({user, newData, getDietForm}) => {
 
     const [dietData, setDietData] = useState(null);
 
@@ -18,13 +12,15 @@ const Diet = ({user}) => {
         // Then set the diet Data for user DB, to our final dietData
 
         setDietData(dietData);
-        // NOTE - This will currently set the dietData to a value with no key value pair
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
         user.footprint['diet'] = dietData
         updateUser(user)
+        newData(user)
+        getDietForm(false, user)
+        
     }
 
 

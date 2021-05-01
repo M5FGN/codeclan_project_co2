@@ -23,13 +23,12 @@ const Output = ({user}) => {
                     <li>Footprint - Commute - Walking: {user.footprint.commute.walking}</li>
                     <li>Footprint - Commute - TOTAL: {user.footprint.commute.total}</li>
                 </ul>
+                     */}
 
+                <li>Footprint - Diet: {user.footprint.diet}</li>
                 <li>Footprint - Air travel: {user.footprint.air}</li>
-                <li>Footprint - Diet: {user.footprint.diet}</li>
+                <li>Footprint - Heating: {user.footprint.heating}</li>
                 <li>Footprint - Recycling: {user.footprint.recycling}</li>
-                <li>Footprint - Heating: {user.footprint.heating}</li> */}
-
-                <li>Footprint - Diet: {user.footprint.diet}</li>
             </ul>
         </div>
 

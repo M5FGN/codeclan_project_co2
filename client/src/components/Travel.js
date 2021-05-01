@@ -1,32 +1,46 @@
-import React from "react";
+import React, {useState} from "react";
+import {updateUser} from '../services/MainService.js'
 
-const Travel = () => {
+const Travel = ({user, newData, getTravelForm}) => {
+    const [travelType, setTravelType] = useState(null);
 
+    const onTypeChange = (e) => {
+        // travelType[e.target.id] = e.target.value;
+        // setTravelType(travelType);
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        // user.footprint.commute['car'] = carData
+        // updateUser(user)
+        // newData(user)
+        getTravelForm(false, user)
+    }
     return (
 
         <div>
         <h2>Travel to Work or School</h2>
-        <form id="travel_form">
+        <form id="travel_form" onsubmit={onSubmit}>
             <h4>Choose your mode of travel ...</h4>
             
             <p>
-            <input type="radio" name="mode_travel" id="train" value="" />
+            <input onChange={onTypeChange} type="radio" name="mode_travel" id="train" value="" />
             <label for="train">Train</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="bus" value="" />
+            <input onChange={onTypeChange} type="radio" name="mode_travel" id="bus" value="" />
             <label for="bus">Bus</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="car" value="" />
+            <input onChange={onTypeChange} type="radio" name="mode_travel" id="car" value="" />
             <label for="car">Car</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="bike" value="" />
+            <input onChange={onTypeChange} type="radio" name="mode_travel" id="bike" value="" />
             <label for="bike">Bike</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="walk" value="" />
+            <input onChange={onTypeChange} type="radio" name="mode_travel" id="walk" value="" />
             <label for="walk">Walk</label>
             </p>
  
