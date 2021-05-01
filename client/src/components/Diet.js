@@ -7,9 +7,9 @@ const Diet = () => {
         <div>
 
             <h2>Diet</h2>
-            <h4>Choose the value which best describes your meat consumption ...</h4>
             
             <form id="diet_form">
+                <h4>Choose the value which best describes your meat consumption ...</h4>
 
                 <p><input type="radio" name="meat_level" id="meat_full" value="" />
                     <label for="meat_full">I eat meat 7 days a week.</label>
