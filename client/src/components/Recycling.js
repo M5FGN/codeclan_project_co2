@@ -6,9 +6,9 @@ const Recycling = () => {
 
         <div>
             <h2>Recycling</h2>
-            <h4>Choose the value which best describes your recycling activities ...</h4>
             
             <form id="recycling_form">
+                <h4>Choose the value which best describes your recycling activities ...</h4>
        
                 <p>
                 <input type="radio" name="recycling_level" id="recycling_all" value="" />

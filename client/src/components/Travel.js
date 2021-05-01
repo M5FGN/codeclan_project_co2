@@ -10,24 +10,24 @@ const Travel = () => {
             <h4>Choose your mode of travel ...</h4>
             
             <p>
-            <input type="radio" name="mode_travel" id="train" value="" />
+            <input type="checkbox" name="train" id="train" value="" />
             <label for="train">Train</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="bus" value="" />
+            <input type="checkbox" name="bus" id="bus" value="" />
             <label for="bus">Bus</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="car" value="" />
+            <input type="checkbox" name="car" id="car" value="" />
             <label for="car">Car</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="bike" value="" />
-            <label for="bike">Bike</label>
+            <input type="checkbox" name="bike" id="bike" value="" />
+            <label for="bike">Cycling</label>
             </p>
             <p>
-            <input type="radio" name="mode_travel" id="walk" value="" />
-            <label for="walk">Walk</label>
+            <input type="checkbox" name="walk" id="walk" value="" />
+            <label for="walk">Walking</label>
             </p>
  
             <h4>Input distance travelled ...</h4>
@@ -44,7 +44,7 @@ const Travel = () => {
             </p>
 
             <p><input type="number" name="miles_bike" id="miles_bike" max="50" min="0" />
-            <label for="miles_bike">Miles Cycled Bike per day</label>
+            <label for="miles_bike">Miles Cycled per day</label>
             </p>
 
             <p><input type="number" name="miles_walk" id="miles_walk" max="50" min="0" />
