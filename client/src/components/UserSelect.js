@@ -18,7 +18,7 @@ const UserSelect = ({users, onSelectedUser, getForm}) => {
             <div>
                 <p> You must have a user account to add your own data </p> 
                 <p> Click from your account on the list below, or click 'Create Account'  </p>
-                <button type='submit' value='Create Account' onClick={() => {getForm()}}>Create Account</button>
+                <button type='submit' value='Create Account' onClick={() => {getForm(true)}}>Create Account</button>
             </div>
 
             <select defaultValue='' onChange={handleSelect} name='userList'>

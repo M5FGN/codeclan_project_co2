@@ -1,9 +1,10 @@
 import React, {useState} from "react";
+import {newUser} from '../services/MainService';
 
 // The purpose of this is so the User can make an account
 // This will then allow their saved data to be access, modified, deleted...
 
-const NewUser = ({postUser}) => {
+const NewUser = ({addUser}) => {
 
     // Implement useState, inital formData is empty object, which becomes our new user
     const [formData, setFormData] = useState({});
@@ -13,20 +14,9 @@ const NewUser = ({postUser}) => {
         setFormData(formData);
     }
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     postUser(formData).then((data) => {
-    //         addUser(data);
-    //     })
-    // }
-
-    // const [username, setUsername] = useState('');
-
-    // const handleUsername = (e) => set
-
     const onSubmit = (e) => {
         e.preventDefault();
-        postUser(formData)
+        newUser(formData).then((data) => addUser(data))
     }
 
     return(

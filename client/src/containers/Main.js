@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {getUsers} from '../services/MainService.js'
 import UserSelect from '../components/UserSelect.js';
 import Output from '../components/Output.js';
 import NewUser from '../components/NewUser.js';
@@ -12,76 +13,39 @@ import Diet from '../components/Diet.js';
 const Main = () => {
   
     const [users, setUsers] = useState([]);
-        // The above two examples are just till we hook up with the routers
-        // DELETE ONCE DONE
-
     const [selectedUser, setSelectedUser] = useState(null);
+    const [newUserForm, setNewUserForm] = useState(null);
+    const [dietForm, setDietForm] = useState(null);
 
     useEffect(() => {
-        getUsers()
+        getUsers().then(allUsers => setUsers(allUsers));
     },[]);
-    
-     // Grab all our users from the db
-     const getUsers = () => {
-        fetch('http://localhost:5000/users/')
-        .then(res => res.json())
-        .then(allUsers => setUsers(allUsers))
-    };
 
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
         setSelectedUser(user)
-        setDietForm(<Diet putUser={putUser} user={user}/>)
+        setDietForm(<Diet user={user}/>)
     };
 
-
-    // // Add a new user
-    const postUser = (newUser) => {
-            fetch('http://localhost:5000/users/', {
-            method: 'POST',
-            body: JSON.stringify(newUser),
-            headers: {'Content-type': 'application/json'}
-        })
-        // .then(res => res.json())
-        .then( () => getUsers())
-    };
-
-    // const addUser = (user) => {
-    //     const temp = users.map(s => s);
-    //     temp.push(user);
-    //     setUsers(temp);
-    // };
-
-
-
-    // Update existing user with new data
-    const putUser = (data) => {
-        return fetch('http://localhost:5000/users', {
-            // might need to be users/:id
-            method: 'PUT',
-            body: JSON.stringify(data),
-            headers: {'Content-type': 'application/json'}
-        })
-        .then(res => res.json())
+    // Update users list locally
+    const addUser = (newUser) => {
+        const temp = users.map(s=>s);
+        temp.push(newUser);
+        setUsers(temp);
+        // Call function to decide whether to render the form or hide it
+        getNewUserForm(false);
     }
 
-    // Set up a state so we can render our form when we want it
-    const [newUserForm, setNewUserForm] = useState(null);
-
-    // Function from the button onClick. It will set the form to our NewUser form
-    // It also acts as a toggle to display/not display the form
-    const getNewUserForm = () => {
-        if (newUserForm === null){
-            setNewUserForm(<NewUser postUser={postUser}/>)
+    // Toggle function to hide/display the NewUserForm
+    const getNewUserForm = (toggle) => {
+        if (toggle === true){
+            setNewUserForm(<NewUser addUser={addUser}/>)
         }
-        else setNewUserForm(null);
+        else if (toggle === false){
+            setNewUserForm(null)
+        }
     };
-
-
-    // RENDERING OF THE INPUT FORMS:
-    const [dietForm, setDietForm] = useState(null);
-
 
     return(
         <div>

@@ -28,6 +28,8 @@ const Output = ({user}) => {
                 <li>Footprint - Diet: {user.footprint.diet}</li>
                 <li>Footprint - Recycling: {user.footprint.recycling}</li>
                 <li>Footprint - Heating: {user.footprint.heating}</li> */}
+
+                <li>Footprint - Diet: {user.footprint.diet}</li>
             </ul>
         </div>
 

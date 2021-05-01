@@ -1,6 +1,7 @@
 import React, {useState} from "react";
+import {updateUser} from '../services/MainService.js'
 
-const Diet = ({user, putUser}) => {
+const Diet = ({user}) => {
 
     // Code here will be a post request?
         // OR A PUT REQUEST? Since we are updating a users inputs from the start?
@@ -11,37 +12,20 @@ const Diet = ({user, putUser}) => {
     const [dietData, setDietData] = useState(null);
 
     const onChange = (e) => {
-        dietData[e.target.id] = e.target.value;
+        const dietData = e.target.value
         // This is where we need our calculator on what to do with the dietData
         // I.e. take this value, multiply by it by some value in our API
         // Then set the diet Data for user DB, to our final dietData
 
-        // For now,
         setDietData(dietData);
-        // This will currently set the dietData to a value with no key value pair
+        // NOTE - This will currently set the dietData to a value with no key value pair
     }
 
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     postUser(dietData).then((data) => {
-    //         addUser(data);
-    //     })
-    // }
-
-
-    // What we actually do with the data we have calculated as above
     const onSubmit = (e) => {
         e.preventDefault();
-        putUser(dietData)
-        .then( (diet) => {
-            user.footprint.diet = diet
-        })
-
-        // onDietSubmit({
-        //     diet: dietData
-        // });
+        user.footprint['diet'] = dietData
+        updateUser(user)
     }
-
 
 
     return (
@@ -51,7 +35,7 @@ const Diet = ({user, putUser}) => {
             <h2>Diet</h2>
             <h4>Choose the value which best describes your meat consumption ...</h4>
             
-            <form id="diet_form" onSumbit={onSubmit}>
+            <form id="diet_form" onSubmit={onSubmit}>
 
                 {/* I have shoved in some values for now to test the submit */}
                 <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value="1000" />
