@@ -1,10 +1,7 @@
 import React, {useState} from "react";
 import NewUser from './NewUser.js'
 
-const UserSelect = ({users, onSelectedUser}) => {
-
-    // Set up a state so we can render our form when we want it
-    const [newUserForm, setForm] = useState(null);
+const UserSelect = ({users, onSelectedUser, getForm}) => {
 
     // Grabs our users, maps and renders the user name of each one, so a user can click to see their data
     const usersOptions = users.map((user, index) => {
@@ -17,26 +14,13 @@ const UserSelect = ({users, onSelectedUser}) => {
         onSelectedUser(chosenUser);
     };
 
-    // Function from the button onClick. It will set the form to our NewUser form
-    const getForm= () => {
-        setForm(<NewUser/>)
-    };
-
-
-
     return(
         <div>
             <div>
                 <p> You must have a user account to view data and add your own </p> 
                 <p> Click from your account on the list below, or click 'Create Account'  </p>
-                    {/* The purpose of this is so we have some ability to save user data to our DB, to grab it for rendering or comparing */}
-                <button type='submit' value='Create Account' onClick={getForm}>Create Account</button>
-                {newUserForm}
-               
+                <button type='submit' value='Create Account' onClick={() => getForm()}>Create Account</button>
             </div>
-
-            {/* A line break just to tidy it up whilst trialling */}
-            <br></br>
 
             <select defaultValue='' onChange={handleSelect} name='userList'>
                 {/* Set our default select to an empty one, else you can't click on first user to render */}

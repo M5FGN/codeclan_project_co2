@@ -89,11 +89,19 @@ const Main = () => {
         })
         .then(res => res.json())
     }
-    const addUsers = (user) => {
+    const addUser = (user) => {
         const temp = users.map(s => s);
         temp.push(user);
         setUsers(temp);
     }
+
+    // Set up a state so we can render our form when we want it
+    const [newUserForm, setNewUserForm] = useState(null);
+
+    // Function from the button onClick. It will set the form to our NewUser form
+    const getNewUserForm= () => {
+        setNewUserForm(<NewUser/>)
+    };
 
 
 
@@ -109,8 +117,8 @@ const Main = () => {
         <div>
             <h1>Welcome to Project CO2</h1>
             <h2><i>The Carbon Feets Print calculator</i></h2>
-
-            <UserSelect users={users} onSelectedUser={onSelectedUser}/>
+            <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>
+            {newUserForm}
 
             {/* If we have selected a User, render their saved Output */}
             {selectedUser ? <Output user={selectedUser}/> : null}
