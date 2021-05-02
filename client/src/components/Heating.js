@@ -67,7 +67,7 @@ const Heating = ({user, newData, getHeatingForm}) => {
             <label for="rooms">Rooms</label>
             </p>
        
-            <input type="submit" value="Calculate" name="submit" />
+            <input class="button" type="submit" value="Calculate" name="submit" />
             
         </form>
 

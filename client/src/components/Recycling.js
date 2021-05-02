@@ -43,7 +43,7 @@ const Recycling = ({user, newData, getRecyclingForm}) => {
                 <label for="recycling_none">I don't recycle anything.</label>
                 </p>
 
-                <input type="submit" value="Calculate" name="submit" />
+                <input class="button" type="submit" value="Calculate" name="submit" />
                 
             </form>
         </div>

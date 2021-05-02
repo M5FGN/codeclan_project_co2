@@ -12,6 +12,7 @@ body {
     position: relative;
     opacity: 90%;
     border-radius: 10px;
+    padding-bottom: 40px;
 }
 
 .input_output{
@@ -27,5 +28,8 @@ body {
     border: 1px solid red;
 } 
 
-
+.logo_text {
+    font-size: 40px;
+    color: #A1C075;
+}
 

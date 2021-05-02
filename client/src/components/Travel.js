@@ -160,7 +160,7 @@ const Travel = ({user, newData, getTravelForm}) => {
             {bike}
             {walk}
             
-            <input type="submit" value="Calculate" name="submit" />
+            <input class="button" type="submit" value="Calculate" name="submit" />
 
         </form>
         </div>

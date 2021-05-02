@@ -31,7 +31,7 @@ const Flights = ({user, newData, getFlightsForm}) => {
                     <label for="flight_hours">Flight Hours</label>
                 </p>
         
-                <input type="submit" value="Calculate" name="submit" />
+                <input class="button" type="submit" value="Calculate" name="submit" />
     
             </form>
         </div>

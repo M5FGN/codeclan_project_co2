@@ -125,6 +125,7 @@ const Main = () => {
     return(
         <div class="main">
             <div class="white">
+            <p class="logo_text">PROJECT CO2</p>
             <div><FontAwesomeIcon icon={faPaw} /></div>
             <h1>Welcome to Project CO2</h1>
 

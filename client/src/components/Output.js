@@ -36,7 +36,6 @@ const Output = ({user, removeUser}) => {
 
     return (
         <div>
-            <p>This is the Output side.</p>
             <ul>
                 <li>Username: {user.username}</li>
                 <li>Full name: {user.forename} {user.surname}</li>
@@ -58,7 +57,7 @@ const Output = ({user, removeUser}) => {
             </ul>
 
             <p>To remove your account, click the 'Remove Account' button:</p>
-            <button type='submit' onClick={handleRemove}>Remove Account</button>
+            <button class="button" type='submit' onClick={handleRemove}>Remove Account</button>
 
         </div>
 
