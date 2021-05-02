@@ -7,7 +7,7 @@
 }
 
 .button {
-  margin: auto;
+  margin: 20px auto;
   padding: 10px 45px;
   text-align: center;
   transition: 0.5s;
