@@ -54,7 +54,7 @@ const Travel = ({user, newData, getForm}) => {
             </p>
             )
         }
-        else if (bus !== null){
+        else if (car !== null){
             setCar(null)
         }
     }
@@ -158,7 +158,7 @@ const Travel = ({user, newData, getForm}) => {
             {bike}
             {walk}
             
-            <input type="submit" value="Calculate" name="submit" />
+            <input class="button" type="submit" value="Calculate" name="submit" />
 
         </form>
         </div>

@@ -1,0 +1,74 @@
+body {
+    background-image: url(../components/ProjectCO2.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white {
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    opacity: 90%;
+    border-radius: 10px;
+    padding-bottom: 40px;
+}
+
+.input_output{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.input, .output{
+    width: 40%;
+    margin: 20px;
+    border: 1px solid red;
+} 
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.logo, .header_text {
+    width: 45%;
+} 
+
+.header_text {
+    padding-top: 30px;
+}
+
+.logo_img {
+    height: 150px;
+    width: 300px;
+  }
+
+form {
+    border: 1px solid  #3ca55c;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+label, h4 {
+    font-size: 18px;
+    color: #3ca55c;
+}
+
+label {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #3ca55c;
+}
+
+
+
