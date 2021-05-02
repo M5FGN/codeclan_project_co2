@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {newUser} from '../services/MainService';
+import './NewUser.css';
 
 const NewUser = ({addUser}) => {
 
@@ -31,9 +32,10 @@ const NewUser = ({addUser}) => {
 
     return(
         <div>
+                <h2>Create a New User</h2>
             <form onSubmit={onSubmit} id='new_user_form'>
                 <p>
-                    <label>Username: </label>
+                    <label class="extra-width">Username: </label>
                     <input onChange={onChange} type='text' name='username' id='username'></input>
                 </p>
 
