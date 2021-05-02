@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Heating = ({user, newData, getHeatingForm}) => {
+const Heating = ({user, newData, getForm}) => {
 
     const [heatingTypeData, setHeatingTypeData] = useState(null);
     const [numberRoomsData, setNumberRoomsData] = useState(null);
@@ -43,7 +43,7 @@ const Heating = ({user, newData, getHeatingForm}) => {
         user.footprint['heating'] = heatingCarbon
         updateUser(user)
         newData(user)
-        getHeatingForm(false, user)
+        getForm('Recycling', user)
     }
 
     return (

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Travel = ({user, newData, getTravelForm}) => {
+const Travel = ({user, newData, getForm}) => {
 
     const [train, setTrain] = useState(null);
     const [bus, setBus] = useState(null);
@@ -118,9 +118,7 @@ const Travel = ({user, newData, getTravelForm}) => {
         user.footprint.commute['walk'] = walkData;
         updateUser(user)
         newData(user)
-        getTravelForm(false, user)
-        console.log(user.footprint)
-
+        getForm('Flights', user)
     }
 
     return (
