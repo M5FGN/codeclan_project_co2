@@ -13,7 +13,7 @@ const Flights = ({user, newData, getForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['air'] = flightData
+        user.footprint['air'] = parseFloat(flightData);
         updateUser(user)
         newData(user)
         getForm('Heating', user)

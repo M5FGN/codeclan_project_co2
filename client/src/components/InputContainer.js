@@ -14,13 +14,13 @@ import Logo from '../components/Logo.jpg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {faPaw } from '@fortawesome/free-solid-svg-icons';
 
-
 const InputContainer = () => {
   
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [newUserForm, setNewUserForm] = useState(null);
-    const [carbonForm, setForm] = useState(null)
+    const [carbonForm, setForm] = useState(null);
+    const [totalCarbon, setTotalCarbon] = useState(null);
 
 
     useEffect(() => {
@@ -32,6 +32,8 @@ const InputContainer = () => {
     const onSelectedUser = (user) => {
         setSelectedUser(user);
         getForm('Diet', user)
+        // Set the state of current carbon total
+        totalCarbonCalc(user);
     };
 
     // Update users list locally when we add a new user
@@ -56,7 +58,33 @@ const InputContainer = () => {
         const updatedUserIndex = users.findIndex(user => user._id === updatedUser._id);
         const updatedUsers = [...users];
         updatedUsers[updatedUserIndex] = updatedUser;
-        setUsers(updatedUsers)
+        setUsers(updatedUsers);
+        // Update the running carbon total
+        totalCarbonCalc(updatedUser);
+        console.log(updatedUser.footprint);
+    }
+
+    // Calculate the total carbon data of a given user
+    const totalCarbonCalc = (user) => {
+        const totalCarbonData = [
+            user.footprint.diet,
+            user.footprint.air,
+            user.footprint.heating,
+            user.footprint.recycling,
+            user.footprint.commute.car,
+            user.footprint.commute.train,
+            user.footprint.commute.bus,
+            user.footprint.commute.cycling,
+            user.footprint.commute.walk
+        ];
+        let total = 0;
+        for (let val of totalCarbonData){
+            // If value IS a number, AND value is NOT null
+            if (!isNaN(val) === true && val !== null){
+                total = total + val;
+            }
+        }
+        setTotalCarbon(total);
     }
 
     // Sets the state of the current form to be displayed
@@ -121,7 +149,7 @@ const InputContainer = () => {
             {newUserForm}
 
             {/* If we have selected a User, render their saved Output */}
-            {selectedUser ? <Output user={selectedUser} removeUser={removeUser}/>: null}
+            {selectedUser ? <Output user={selectedUser} removeUser={removeUser} totalCarbon={totalCarbon}/>: null}
 
             {selectedUser ?
                 <div id='current_rendered_form'>

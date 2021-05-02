@@ -14,7 +14,6 @@ export const newUser = (newUser) => {
 
  // Update existing user with new data
 export const updateUser = (user) => {
-    console.log('This is the updateUser function being called') // WORKS
     return fetch(baseURL + user._id, {
         method: 'PUT',
         body: JSON.stringify(user),

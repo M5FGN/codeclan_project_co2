@@ -13,7 +13,7 @@ const Recycling = ({user, newData, getForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['recycling'] = recyclingData
+        user.footprint['recycling'] = parseFloat(recyclingData);
         updateUser(user)
         newData(user)
         getForm(null, user)

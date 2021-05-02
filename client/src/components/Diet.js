@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-
 const Diet = ({user, newData, getForm}) => {
 
 
@@ -18,7 +17,7 @@ const Diet = ({user, newData, getForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['diet'] = dietData;
+        user.footprint['diet'] = parseFloat(dietData);
         updateUser(user);
         newData(user);
         getForm('Travel', user);

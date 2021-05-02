@@ -111,11 +111,11 @@ const Travel = ({user, newData, getForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint.commute['train'] = trainData;
-        user.footprint.commute['bus'] = busData;
-        user.footprint.commute['car'] = carData;
-        user.footprint.commute['cycling'] = bikeData;
-        user.footprint.commute['walk'] = walkData;
+        user.footprint.commute['train'] = parseFloat(trainData);
+        user.footprint.commute['bus'] = parseFloat(busData);
+        user.footprint.commute['car'] = parseFloat(carData);
+        user.footprint.commute['cycling'] = parseFloat(bikeData);
+        user.footprint.commute['walk'] = parseFloat(walkData);
         updateUser(user)
         newData(user)
         getForm('Flights', user)
