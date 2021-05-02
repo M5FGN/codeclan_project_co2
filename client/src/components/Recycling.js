@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Recycling = ({user, newData, getRecyclingForm}) => {
+const Recycling = ({user, newData, getForm}) => {
 
     const [recyclingData, setRecyclingData] = useState(null);
 
@@ -16,7 +16,7 @@ const Recycling = ({user, newData, getRecyclingForm}) => {
         user.footprint['recycling'] = recyclingData
         updateUser(user)
         newData(user)
-        getRecyclingForm(false, user)
+        getForm(null, user)
     }
     return (
 
