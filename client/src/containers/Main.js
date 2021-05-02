@@ -11,8 +11,9 @@ import Recycling from '../components/Recycling.js';
 import InputContainer from '../components/InputContainer.js';
 import OutputContainer from '../components/OutputContainer.js';
 import './main.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faPaw } from '@fortawesome/free-solid-svg-icons';
+import Logo from '../components/Logo.jpg';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {faPaw } from '@fortawesome/free-solid-svg-icons';
 
 
 const Main = () => {
@@ -125,11 +126,15 @@ const Main = () => {
     return(
         <div class="main">
             <div class="white">
-            <p class="logo_text">PROJECT CO2</p>
-            <div><FontAwesomeIcon icon={faPaw} /></div>
-            <h1>Welcome to Project CO2</h1>
-
-            <h2><i>The Carbon Feets Print calculator</i></h2>
+                <div class="header">
+                <div class="logo"><img class="logo_img" src= {Logo} alt="ProjectCO2 Logo"></img></div>
+            {/* <p class="logo_text">PROJECT CO2</p> */}
+            {/* <div><FontAwesomeIcon icon={faPaw} /></div> */}
+            <div class="header_text">
+            <h2>Carbon Foot Print Calculator</h2>
+            <p><i>Created by Colin, Iain and Mary</i></p>
+            </div>
+            </div>
             <div class="input_output">
 
                 <div class="input">

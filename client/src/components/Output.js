@@ -24,10 +24,6 @@ const Output = ({user, removeUser}) => {
     // console.log(totalCarbon);
 
 
-
-
-
-
     //Removes users in their entirety
     const handleRemove = () => {
         deleteUser(user._id);

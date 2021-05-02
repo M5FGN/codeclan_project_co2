@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
+
 const Diet = ({user, newData, getDietForm}) => {
 
     const [dietData, setDietData] = useState(null);
@@ -50,7 +51,7 @@ const Diet = ({user, newData, getDietForm}) => {
                     <label for="meat_none">I don't eat meat.</label>
                 </p>
 
-                <input class="button" type="submit" value="Calculate" name="submit" />
+                <input class="button" type="submit" value="Calculate" name="submit" />        
     
     </form>
 

@@ -16,6 +16,7 @@
   border-radius: 10px;
   display: block;
   border: none;
+  font-size: 20px;
 }
 
 .button:hover {
@@ -23,3 +24,5 @@
   color: #fff;
   text-decoration: none;
 }
+
+

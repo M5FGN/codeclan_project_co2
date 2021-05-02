@@ -28,8 +28,24 @@ body {
     border: 1px solid red;
 } 
 
-.logo_text {
-    font-size: 40px;
-    color: #A1C075;
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 10px;
 }
+
+.logo, .header_text {
+    width: 45%;
+} 
+
+.header_text {
+    padding-top: 30px;
+}
+
+.logo_img {
+    height: 150px;
+    width: 300px;
+  }
 

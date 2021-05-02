@@ -54,7 +54,7 @@ const Travel = ({user, newData, getTravelForm}) => {
             </p>
             )
         }
-        else if (bus !== null){
+        else if (car !== null){
             setCar(null)
         }
     }
