@@ -20,7 +20,6 @@ const Main = () => {
 
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
-
     },[]);
 
     // Takes in our selected user, and sets selected user state
@@ -55,6 +54,7 @@ const Main = () => {
         setUsers(updatedUsers)
     }
 
+    // Sets the state of the current form to be displayed
     const getForm = (form, user) => {
         if (form === 'Diet'){
             setForm(<Diet user={user} newData={updateNewData} getForm={getForm}/>)
@@ -103,11 +103,6 @@ const Main = () => {
 
             {selectedUser ?
                 <div id='current_rendered_form'>
-                    {/* {dietForm}
-                    {travelForm}
-                    {flightsForm}
-                    {heatingForm}
-                    {recyclingForm} */}
                     {carbonForm}
                 </div>
              : null}
