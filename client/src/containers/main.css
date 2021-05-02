@@ -10,7 +10,7 @@ body {
     background-color: white;
     margin: 50px;
     position: relative;
-    opacity: 90%;
+    opacity: 92%;
     border-radius: 10px;
     padding-bottom: 40px;
 }
@@ -25,6 +25,10 @@ body {
 .input, .output{
     width: 40%;
     margin: 20px;
+} 
+
+.output{
+
     border: 1px solid red;
 } 
 
@@ -53,11 +57,17 @@ form {
     border: 1px solid  #3ca55c;
     margin: 20px;
     border-radius: 10px;
+    text-align: left;
+    padding-left: 20px;
 }
 
 label, h4 {
     font-size: 18px;
     color: #3ca55c;
+}
+
+h4 {
+    text-align: center;
 }
 
 label {
@@ -68,6 +78,10 @@ label {
 h2 {
     font-size: 24px;
     color: #3ca55c;
+}
+
+.extra-width {
+padding-right: 22px;
 }
 
 
