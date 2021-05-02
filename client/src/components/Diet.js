@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
 
-const Diet = ({user, newData, getDietForm}) => {
+const Diet = ({user, newData, getForm}) => {
+
 
     const [dietData, setDietData] = useState(null);
 
@@ -20,7 +21,7 @@ const Diet = ({user, newData, getDietForm}) => {
         user.footprint['diet'] = dietData;
         updateUser(user);
         newData(user);
-        getDietForm(false, user);
+        getForm('Travel', user);
         
     }
 

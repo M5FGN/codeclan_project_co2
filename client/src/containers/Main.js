@@ -21,23 +21,18 @@ const Main = () => {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [newUserForm, setNewUserForm] = useState(null);
-    const [dietForm, setDietForm] = useState(null);
-    const [travelForm, setTravelForm] = useState(null);
-    const [flightsForm, setFlightsForm] = useState(null);
-    const [heatingForm, setHeatingForm] = useState(null);
-    const [recyclingForm, setRecyclingForm] = useState(null);
+    const [carbonForm, setForm] = useState(null)
 
 
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
-
     },[]);
 
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
         setSelectedUser(user);
-        getDietForm(true, user);
+        getForm('Diet', user)
     };
 
     // Update users list locally when we add a new user
@@ -65,6 +60,28 @@ const Main = () => {
         setUsers(updatedUsers)
     }
 
+    // Sets the state of the current form to be displayed
+    const getForm = (form, user) => {
+        if (form === 'Diet'){
+            setForm(<Diet user={user} newData={updateNewData} getForm={getForm}/>)
+        };
+        if (form === 'Travel'){
+            setForm(<Travel user={user} newData={updateNewData} getForm={getForm}/>)
+        };
+        if (form === 'Flights'){
+            setForm(<Flights user={user} newData={updateNewData} getForm={getForm}/>)
+        };
+        if (form === 'Heating'){
+            setForm(<Heating user={user} newData={updateNewData} getForm={getForm}/>)
+        };
+        if (form === 'Recycling'){
+            setForm(<Recycling user={user} newData={updateNewData} getForm={getForm}/>)
+        } 
+        if (form === null){
+            setForm(null);
+        };
+    };
+
     // Toggle function to hide/display the NewUserForm
     const getNewUserForm = (toggle) => {
         if (toggle === true){
@@ -76,53 +93,7 @@ const Main = () => {
         }
     };
 
-    // Toggle function display the diet form, then render flights if not displayed
-    const getDietForm = (toggle, user) => {
-        if (toggle === true){
-            setDietForm(<Diet user={user} newData={updateNewData} getDietForm={getDietForm}/>)
-        }
-        else if (toggle === false){
-            setDietForm(null)
-            // getTravelForm(true, user)
-            getTravelForm(true, user)
-        }
-    }
-
-    const getTravelForm = (toggle, user) => {
-        if (toggle === true){
-            setTravelForm(<Travel user={user} newData={updateNewData} getTravelForm={getTravelForm}/>)
-        } else if (toggle === false){
-            setTravelForm(null)
-            getFlightsForm(true, user)
-        }
-    }
-
-    const getFlightsForm = (toggle, user) => {
-        if (toggle === true){
-            setFlightsForm(<Flights user={user} newData={updateNewData} getFlightsForm={getFlightsForm}/>)
-        } else if (toggle === false){
-            setFlightsForm(null)
-            getHeatingForm(true, user)
-        }
-    }
-
-    const getHeatingForm = (toggle, user) => {
-        if (toggle === true){
-            setHeatingForm(<Heating user={user} newData={updateNewData} getHeatingForm={getHeatingForm}/>)
-        } else if (toggle === false){
-            setHeatingForm(null)
-            getRecyclingForm(true,user)
-        }
-    }
-    const getRecyclingForm = (toggle, user) => {
-        if (toggle === true){
-            setRecyclingForm(<Recycling user={user} newData={updateNewData} getRecyclingForm={getRecyclingForm}/>)
-        } else if (toggle === false){
-            setRecyclingForm(null)
-            // Then get some other kind of "Do you want to edit your data???"
-        }
-    }
-    
+   
     return(
         <div class="main">
             <div class="white">
@@ -155,11 +126,7 @@ const Main = () => {
 
             {selectedUser ?
                 <div id='current_rendered_form'>
-                    {dietForm}
-                    {travelForm}
-                    {flightsForm}
-                    {heatingForm}
-                    {recyclingForm}
+                    {carbonForm}
                 </div>
              : null}
         </div>

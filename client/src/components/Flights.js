@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Flights = ({user, newData, getFlightsForm}) => {
+const Flights = ({user, newData, getForm}) => {
     const [flightData, setFlightData] = useState(null);
 
     const onChange = (e) => {
@@ -16,7 +16,7 @@ const Flights = ({user, newData, getFlightsForm}) => {
         user.footprint['air'] = flightData
         updateUser(user)
         newData(user)
-        getFlightsForm(false, user)
+        getForm('Heating', user)
     }
     return (
         <div>
