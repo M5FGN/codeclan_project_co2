@@ -61,7 +61,6 @@ const InputContainer = () => {
         setUsers(updatedUsers);
         // Update the running carbon total
         totalCarbonCalc(updatedUser);
-        console.log(updatedUser.footprint);
     }
 
     // Calculate the total carbon data of a given user
