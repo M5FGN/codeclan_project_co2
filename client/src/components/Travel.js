@@ -8,12 +8,15 @@ const Travel = ({user, newData, getForm}) => {
     const [car, setCar] = useState(null);
     const [bike, setBike] = useState(null);
     const [walk, setWalk] = useState(null);
+    const methods = [train, bus, car, bike, walk];
 
     const [trainData, setTrainData] = useState(null);
     const [busData, setBusData] = useState(null);
     const [carData, setCarData] = useState(null);
     const [bikeData, setBikeData] = useState(null);
     const [walkData, setWalkData] = useState(null);
+
+    const methods_data = [trainData, busData, carData, bikeData, walkData];
 
 
 // Five onChange functions for checkboxes to toggle render of miles per type of transport inputs
@@ -89,43 +92,36 @@ const Travel = ({user, newData, getForm}) => {
     
 // 5 Functions to set the user inputs
     const onTrain = (e) => {
-        const trainCarbon = e.target.value;
-        setTrainData(trainCarbon);
+        setTrainData(e.target.value);
     };
     const onBus = (e) => {
-        const busCarbon = e.target.value;
-        setBusData(busCarbon);
+        setBusData(e.target.value);
     };
     const onCar = (e) => {
-        const carCarbon = e.target.value;
-        setCarData(carCarbon);
+        setCarData(e.target.value);
     };
     const onBike = (e) => {
-        const bikeCarbon = e.target.value;
-        setBikeData(bikeCarbon);
+        setBikeData(e.target.value);
     };
     const onWalk = (e) => {
-        const walkCarbon = e.target.value;
-        setWalkData(walkCarbon);
+        setWalkData(e.target.value);
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (train !== null){
-            user.footprint.commute['train'] = parseFloat(trainData);
-        } else {user.footprint.commute['bus'] = null};
-        if (bus !== null){
-            user.footprint.commute['bus'] = parseFloat(busData);
-        } else {user.footprint.commute['bus'] = null};
-        if (car !== null){
-            user.footprint.commute['car'] = parseFloat(carData);
-        } else {user.footprint.commute['car'] = null};
-        if (bike !== null){
-            user.footprint.commute['cycling'] = parseFloat(bikeData);
-        } else {user.footprint.commute['cycling'] = null};
-        if (walk !== null){
-            user.footprint.commute['walk'] = parseFloat(walkData);
-        } else {user.footprint.commute['walk'] = null};
+        const dataLoop = () => {
+            const strings = ['train', 'bus', 'car', 'cycling', 'walk'];
+
+            for (let method of methods){
+                const i = methods.indexOf(method);
+                const string = strings[i];
+                if (method !== null){
+                user.footprint.commute[string] = parseFloat(methods_data[i])
+                } else {user.footprint.commute[string]=null}
+            }
+            };
+
+        dataLoop();
         updateUser(user);
         newData(user);
         getForm('Flights', user);
