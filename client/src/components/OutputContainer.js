@@ -8,10 +8,10 @@ const OutputContainer = () => {
 
     return (
         <div>
-        < Chart />
         < OutputTotal />
         This is where the Personalised Output will go.
         {/* < Output /> */}
+        < Chart />
         </div>
     )
 

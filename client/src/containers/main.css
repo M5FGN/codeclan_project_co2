@@ -98,3 +98,10 @@ p {
 #new_user_form {
     text-align: center;
 }
+
+ul>li {
+    font-family: 'Monda', sans-serif;
+    list-style-type: none;
+    font-size: 20px;
+    color: #3ca55c;
+}
