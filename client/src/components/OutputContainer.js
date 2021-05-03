@@ -1,15 +1,16 @@
 import React from 'react';
 import Chart from '../components/Chart';
 import Output from '../components/Output';
+import OutputTotal from '../components/OutputTotal';
 
 
 const OutputContainer = () => {
 
     return (
         <div>
-        This is the Output Side.
         < Chart />
-        This is where the Output will go.
+        < OutputTotal />
+        This is where the Personalised Output will go.
         {/* < Output /> */}
         </div>
     )
