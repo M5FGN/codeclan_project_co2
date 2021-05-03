@@ -64,10 +64,12 @@ form {
 label, h4 {
     font-size: 18px;
     color: #3ca55c;
+    font-family: 'Monda', sans-serif;
 }
 
 h4 {
     text-align: center;
+    font-family: 'Monda', sans-serif;
 }
 
 label {
@@ -76,21 +78,30 @@ label {
 }
 
 h2 {
+    font-family: 'Monda', sans-serif;
     font-size: 24px;
     color: #3ca55c;
 }
-
-.extra-width {
-padding-right: 22px;
-}
-
 
 select { 
     padding: 6px;
 }
 
-input[type="number"] {
+input[type="number"], input[type="text"] {
     padding: 6px;
 }
 
+p {
+    font-family: 'Monda', sans-serif;
+}
 
+#new_user_form {
+    text-align: center;
+}
+
+ul>li {
+    font-family: 'Monda', sans-serif;
+    list-style-type: none;
+    font-size: 20px;
+    color: #3ca55c;
+}

@@ -17,7 +17,7 @@ const UserSelect = ({users, onSelectedUser, getForm}) => {
         <div>
             <div>
                 <p> You must have a user account to add your own data </p> 
-                <p> Click from your account on the list below, or click 'Create Account'  </p>
+                <p> Click from your account on the list below, <br/> or click 'Create Account'  </p>
                 <button class="button" type='submit' value='Create Account' onClick={() => {getForm(true)}}>Create Account</button>
             </div>
 

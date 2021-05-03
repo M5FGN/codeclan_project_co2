@@ -91,26 +91,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
     };
    
     return(
-        // <div class="main">
-        //     <div class="white">
-        //         <div class="header">
-        //         <div class="logo"><img class="logo_img" src= {Logo} alt="ProjectCO2 Logo"></img></div>
-        //     {/* <p class="logo_text">PROJECT CO2</p> */}
-        //     {/* <div><FontAwesomeIcon icon={faPaw} /></div> */}
-        //     <div class="header_text">
-        //     <h2>Carbon Foot Print Calculator</h2>
-        //     <p><i>Created by Colin, Iain and Mary</i></p>
-        //     </div>
-        //     </div>
-        //     <div class="input_output">
-
-        //         <div class="input">
-        //             < InputContainer />
-        //         </div>
-        //         <div class="output">
-        //             < OutputContainer />
-        //         </div>
-        //     </div>
+       
             <div>
 
             {selectedUser === null ? <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>: null}
@@ -125,9 +106,9 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
 
              {selectedUser ? 
                 <div>
-                    <h3>Return to main page</h3>
-                    <p>You can view other user data from the main page</p>
-                    <button type='submit' onClick={() => {setSelectedUser(null)}}>Return to Main</button>
+                    <h4>Return to main page</h4>
+                    <p>You can view other user data from the home page</p>
+                    <button class="button" type='submit' onClick={() => {setSelectedUser(null)}}>Return to Home</button>
                 </div>
                 :null }
 
