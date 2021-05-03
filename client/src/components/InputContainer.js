@@ -30,12 +30,6 @@ const InputContainer = () => {
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
-        // setSelectedUser(user);
-        // if (user !== null ){
-        //     getForm('Diet', user);
-        //     totalCarbonCalc(user);
-        //     getNewUserForm(false);
-        // };
         setSelectedUser(user);
         getForm('Diet', user);
         totalCarbonCalc(user);
@@ -166,9 +160,7 @@ const InputContainer = () => {
                 <div>
                     <h3>Return to main page</h3>
                     <p>You can view other user data from the main page</p>
-                    {/* <button type='submit' onClick={() => {onSelectedUser(null)}}>Return to Main</button> */}
                     <button type='submit' onClick={() => {setSelectedUser(null)}}>Return to Main</button>
-
                 </div>
                 :null }
         </div>
