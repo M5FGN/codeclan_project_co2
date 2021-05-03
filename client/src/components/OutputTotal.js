@@ -1,10 +1,11 @@
 import React from 'react';
 
-const OutputTotal = () => {
+const OutputTotal = ({totalCarbon}) => {
 
     return (
         <div>
-            This is the Output total.
+                <h4>Total Carbon:</h4>
+                <p>{totalCarbon}</p>
         </div>
     )
 }

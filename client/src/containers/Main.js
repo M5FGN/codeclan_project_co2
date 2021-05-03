@@ -9,6 +9,7 @@ const Main = () => {
 
     const [users, setUsers] = useState([]);
     const [totalCarbon, setTotalCarbon] = useState(null);
+    const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
@@ -52,10 +53,10 @@ const Main = () => {
             <div class="input_output">
 
                 <div class="input">
-                    < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers}/>
+                    < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 <div class="output">
-                    < OutputContainer totalCarbon={totalCarbon}/>
+                    {selectedUser !== null ? < OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> :null}
                 </div>
             </div>
 

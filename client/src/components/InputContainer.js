@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import UserSelect from '../components/UserSelect.js';
-import Output from '../components/Output.js';
 import NewUser from '../components/NewUser.js';
 import Diet from '../components/Diet.js';
 import Travel from '../components/Travel.js';
@@ -13,8 +12,7 @@ import Logo from '../components/Logo.jpg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {faPaw } from '@fortawesome/free-solid-svg-icons';
 
-const InputContainer = ({users, totalCarbonCalc, setUsers}) => {
-    const [selectedUser, setSelectedUser] = useState(null);
+const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSelectedUser}) => {
     const [newUserForm, setNewUserForm] = useState(null);
     const [carbonForm, setForm] = useState(null);
     
@@ -28,6 +26,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers}) => {
         totalCarbonCalc(user);
         getNewUserForm(false);
     };
+
 
     // Update users list locally when we add a new user
     const addUser = (newUser) => {
@@ -122,9 +121,6 @@ const InputContainer = ({users, totalCarbonCalc, setUsers}) => {
             {selectedUser === null ? <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>: null}
            
             {newUserForm}
-
-            {/* If we have selected a User, render their saved Output */}
-            {/* {selectedUser ? <Output user={selectedUser} removeUser={removeUser} totalCarbon={totalCarbon}/>: null} */}
 
             {selectedUser ?
                 <div id='current_rendered_form'>

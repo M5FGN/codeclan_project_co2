@@ -1,6 +1,6 @@
 import React from "react";
 
-const Output = ({user, totalCarbon}) => {
+const Output = ({user}) => {
     
 
     const diet = user.footprint.diet;
@@ -39,17 +39,6 @@ const Output = ({user, totalCarbon}) => {
     return (
         <div>
             <ul>
-                <li>Username: {user.username}</li>
-                <li>Full name: {user.forename} {user.surname}</li>
-
-                {/* This should be a loop, but is only here for example data  */}
-                {/* FOR INFO:
-                    .The data input by default is a string. We  have changed all input data to be parsed into a number before storage.
-                    .This means that any blank entries not filled in, are stored as 'NaN'
-                    .And initially empty ones are 'null' when we make a new user
-                    .So we only want to render those where the data is a number i.e. isNaN is false, so !isNaN is true.
-                    .And where data does not equal null
-                */}
                 {!isNaN(diet) && diet !== null ? <li>Footprint - Diet: {diet}</li> : null}
                 {!isNaN(air) && air !== null ? <li>Footprint - Air travel: {air}</li> : null}
                 {!isNaN(heating) && heating !== null ? <li>Footprint - Heating: {heating}</li> : null }
@@ -62,8 +51,6 @@ const Output = ({user, totalCarbon}) => {
                 {!isNaN(cycle) && cycle !== null ? <li>Footprint - Commute - Cycling: {cycle}</li> : null}
                 {!isNaN(walk) && walk !== null ? <li>Footprint - Commute - Walking: {walk}</li> : null}
                 </ul>
-
-                {totalCarbon > 0 ? <li>Total Carbon: {totalCarbon}</li> : null}
 
             </ul>
 
