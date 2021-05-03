@@ -91,6 +91,7 @@ db.users.insertMany([
     }}
 ]);
 
+
 db.carbonFootprints.insertMany([
     {"Emission-Sources":{
         "meat":{

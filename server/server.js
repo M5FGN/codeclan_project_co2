@@ -23,7 +23,7 @@ MongoClient.connect('mongodb://localhost:27017')
 MongoClient.connect('mongodb://localhost:27017')
 .then((client) => {
     const db = client.db('projectco2');
-    const figuresCollection = db.collection('figures');
+    const figuresCollection = db.collection('carbonFootprints');
     const figuresRouter = createRouter(figuresCollection);
     app.use('/figures', figuresRouter);
 });
