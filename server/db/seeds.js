@@ -91,49 +91,57 @@ db.users.insertMany([
     }}
 ]);
 
-db.carbonFootprints.insertMany([
-    {"Emission_Sources":{
-        "meat":{
-            "meat":"1.5",
-            "meat2":"3",
-            "meat3":"4.5",
-            "meat4":"6",
-            "meat5":"7.5",
-            "meat6":"9",
-            "meat7":"10"
+db.figures.insertMany([
+    {meat:
+        {
+        meat: 1.5,
+        meat2: 3,
+        meat3: 4.5,
+        meat4: 6,
+        meat5: 7.5,
+        meat6: 9,
+        meat7: 10
+        }
+    },
+    {"transport":
+        {
+        "train": "0.024",
+        "petrolcar":"0.18",
+        "electriccar":"0.06",
+        "taxi":"0.210",
+        "motorbike":"0.115",
+        "bus":"0.027",
+        "cycling":"0.001",
+        "walking":"0.0005"
+        }
         },
-        "transport":{
-            "train": "0.024",
-            "petrolcar":"0.18",
-            "electriccar":"0.06",
-            "taxi":"0.210",
-            "motorbike":"0.115",
-            "bus":"0.027",
-            "cycling":"0.001",
-            "walking":"0.0005"
-
-        },
-        "airtravel":{
-            "airtime":"90"
-        },
-        "recycling":{
-            "never_recycled":"1960",
-            "some_recycled":"1372",
-            "mostly_recycled":"784",
-            "always_recycled":"392"
-        },
-        "gas":{
-            "rooms_1":"1480",
-            "rooms_2":"1942.5",
-            "rooms_3":"2497.5",
-            "rooms_4":"2867.5"
-        },
-        "electricity":{
-            "rooms_1":"419.4",
-            "rooms_2":"477.65",
-            "rooms_3":"535.9",
-            "rooms_4":"594.15"
+    {"airtravel":
+        {
+        "airtime":"90"
+        }
+    },
+    {"recycling":
+        {
+        "never_recycled":"1960",
+        "some_recycled":"1372",
+        "mostly_recycled":"784",
+        "always_recycled":"392"
+        }
+    },
+    {"gas":
+        {
+        "rooms_1":"1480",
+        "rooms_2":"1942.5",
+        "rooms_3":"2497.5",
+        "rooms_4":"2867.5"
+        }
+    },
+    {"electricity":
+        {
+        "rooms_1":"419.4",
+        "rooms_2":"477.65",
+        "rooms_3":"535.9",
+        "rooms_4":"594.15"
         }
     }
-}
 ]);
