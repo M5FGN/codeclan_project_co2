@@ -112,20 +112,20 @@ const Travel = ({user, newData, getForm}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         if (train !== null){
-            user.footprint.commute['train'] = parseFloat(trainData)
-        }
+            user.footprint.commute['train'] = parseFloat(trainData);
+        };
         if (bus !== null){
-            user.footprint.commute['bus'] = parseFloat(busData)
-        }
+            user.footprint.commute['bus'] = parseFloat(busData);
+        };
         if (car !== null){
-            user.footprint.commute['car'] = parseFloat(carData)
-        }
+            user.footprint.commute['car'] = parseFloat(carData);
+        };
         if (bike !== null){
-            user.footprint.commute['cycling'] = parseFloat(bikeData)
-        }
+            user.footprint.commute['cycling'] = parseFloat(bikeData);
+        };
         if (walk !== null){
-            user.footprint.commute['walk'] = parseFloat(walkData)
-        }
+            user.footprint.commute['walk'] = parseFloat(walkData);
+        };
         updateUser(user);
         newData(user);
         getForm('Flights', user);
