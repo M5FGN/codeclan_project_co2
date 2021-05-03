@@ -3,47 +3,34 @@ import {updateUser} from '../services/MainService.js'
 
 const Heating = ({user, newData, getForm}) => {
 
-    const [heatingTypeData, setHeatingTypeData] = useState(null);
-    const [numberRoomsData, setNumberRoomsData] = useState(null);
-    const [heatingCarbon, setHeatingCarbon] = useState(null);
-
+    const [heatingTypeData, setHeatingTypeData] = useState(0);
+    const [numberRoomsData, setNumberRoomsData] = useState(0);
 
     const onTypeChange = (e) => {
         const heatingType = e.target.id;
-        let heating_api = 1;
+        // let heating_api = 0;
         if (heatingType === 'gas'){
             // API value = 300 kg CO2/year (random guess)
-            heating_api = 300;
+            setHeatingTypeData(300)
         }
-        else if (heatingType === 'electricity'){
+        if (heatingType === 'electricity'){
             // API value = 500 kg CO2/year (random guess)
-            heating_api = 500;
+            setHeatingTypeData(500)
         }
-        setHeatingTypeData(heating_api);
-        totalCarbon();
     }
 
     const onValueChange = (e) => {
-        const numRooms = e.target.value;
+        const numRooms = parseFloat(e.target.value);
         const carbon = numRooms // Times some value in API
-        setNumberRoomsData(carbon);
-        totalCarbon();
-
+        setNumberRoomsData(carbon)
     }
-
-    // Some calculation based on total number of rooms, and heating type
-    const totalCarbon = () => {
-        const sum = heatingTypeData * numberRoomsData * 0.2 // Random guess
-        setHeatingCarbon(sum);
-    }
-
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['heating'] = parseFloat(heatingCarbon);
-        updateUser(user)
-        newData(user)
-        getForm('Recycling', user)
+        user.footprint['heating'] = (heatingTypeData*numberRoomsData);
+        updateUser(user);
+        newData(user);
+        getForm('Recycling', user);
     }
 
     return (
@@ -54,7 +41,7 @@ const Heating = ({user, newData, getForm}) => {
             <h4>Choose the type of heating in your house ...</h4>
             
             <p>
-            <input onChange={onTypeChange} type="radio" name="heating_type" id="gas" value="" />
+            <input onChange={onTypeChange} type="radio" name="heating_type" id="gas" value="" required/>
             <label for="gas">Gas</label>
             </p>
             <p>
@@ -63,7 +50,7 @@ const Heating = ({user, newData, getForm}) => {
             </p>
 
             <h4>Input the number of rooms in your house ...</h4>
-            <p><input onChange={onValueChange} type="number" name="rooms" id="rooms" max="10" min="1" />
+            <p><input onChange={onValueChange} type="number" name="rooms" id="rooms" max="10" min="1" required/>
             <label for="rooms">Rooms</label>
             </p>
        
