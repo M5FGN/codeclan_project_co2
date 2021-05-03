@@ -6,9 +6,10 @@ const OutputTotal = ({totalCarbon}) => {
     return (
         <div>
 
-            < OdoTest />
-            <h4>Total Carbon:</h4>
-            <p>{totalCarbon}</p>
+            <h4>Your total annual Carbon Foot Print is ... <p class="odo">< OdoTest totalCarbon={totalCarbon} /></p>Kilograms</h4>
+            <hr/>
+            {/* <h4>Total Carbon:</h4>
+            <p>{totalCarbon}</p> */}
         </div>
     )
 }

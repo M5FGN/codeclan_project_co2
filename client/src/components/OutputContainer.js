@@ -12,12 +12,9 @@ const OutputContainer = ({user, totalCarbon}) => {
                 {/* <h4>Carbon Foot Print of {user.forename} {user.surname}</h4> */}
             {/* </div> */}
         
-            
             {totalCarbon > 0 ?
                 < OutputTotal totalCarbon={totalCarbon}/>
                 : null}
-            
-               
 
             <div>
                 {/* <h4>{user.forename}, this is how your <br></br>Carbon Foot Print is made up ...</h4> */}
