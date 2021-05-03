@@ -1,7 +1,6 @@
 import React from "react";
 
 const Output = ({user}) => {
-    
 
     const diet = user.footprint.diet;
     const air = user.footprint.air;
@@ -12,29 +11,6 @@ const Output = ({user}) => {
     const bus = user.footprint.commute.bus;
     const cycle = user.footprint.commute.cycling;
     const walk = user.footprint.commute.walk;
-
-// The below is a trial for looping through the data to render it, may be useful, doesn't work yet
-
-    // const data = {
-    //     diet: user.footprint.diet,
-    //     air: user.footprint.air,
-    //     heating:  user.footprint.heating,
-    //     recycling: user.footprint.recycling,
-    //     car: user.footprint.commute.car,
-    //     train: user.footprint.commute.train,
-    //     bus: user.footprint.commute.bus,
-    //     cycle: user.footprint.commute.cycling,
-    //     walk: user.footprint.commute.walk 
-    // }
-
-    // const dataLoop = () => {
-    //     for (let [key, value] in data){
-    //         if (!isNaN(value) && value !== null){
-    //             return <li>Footprint - {key} {value}</li>
-    //         }
-    //     }
-    // }
-
 
     return (
         <div>
@@ -51,13 +27,8 @@ const Output = ({user}) => {
                 {!isNaN(cycle) && cycle !== null ? <li>Footprint - Commute - Cycling: {cycle}</li> : null}
                 {!isNaN(walk) && walk !== null ? <li>Footprint - Commute - Walking: {walk}</li> : null}
                 </ul>
-
             </ul>
-
-          
-
         </div>
-
     )
 }
 

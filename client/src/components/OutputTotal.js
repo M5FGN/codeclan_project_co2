@@ -4,8 +4,8 @@ const OutputTotal = ({totalCarbon}) => {
 
     return (
         <div>
-                <h4>Total Carbon:</h4>
-                <p>{totalCarbon}</p>
+            <h4>Total Carbon:</h4>
+            <p>{totalCarbon}</p>
         </div>
     )
 }

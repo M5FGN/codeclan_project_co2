@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import UserSelect from '../components/UserSelect.js';
 import NewUser from '../components/NewUser.js';
 import Diet from '../components/Diet.js';
@@ -16,8 +16,6 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
     const [newUserForm, setNewUserForm] = useState(null);
     const [carbonForm, setForm] = useState(null);
     
-
-
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
@@ -27,7 +25,6 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         getNewUserForm(false);
     };
 
-
     // Update users list locally when we add a new user
     const addUser = (newUser) => {
         const temp = users.map(s=>s);
@@ -35,7 +32,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         setUsers(temp);
         getNewUserForm(false);
         onSelectedUser(newUser);
-    }
+    };
 
     // Remove user locally
     const removeUser = (id) => {
@@ -43,7 +40,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         // The above will loop through each one and filter out where id doesn't match
         // Alternatively we can splice it and return new list
         setSelectedUser(null);
-    }
+    };
 
     // Update user locally after we add new data
     const updateNewData = updatedUser => {
@@ -53,9 +50,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         setUsers(updatedUsers);
         // Update the running carbon total
         totalCarbonCalc(updatedUser);
-    }
-
-  
+    };
 
     // Sets the state of the current form to be displayed
     const getForm = (form, user) => {
@@ -93,7 +88,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
     const handleRemove = (user) => {
         deleteUser(user._id);
         removeUser(user._id);
-    }
+    };
    
     return(
         // <div class="main">
