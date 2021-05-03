@@ -15,7 +15,7 @@ const Main = () => {
             {/* <div><FontAwesomeIcon icon={faPaw} /></div> */}
             <div class="header_text">
             <h2>Carbon Foot Print Calculator</h2>
-            <p><i>Created by Colin, Iain and Mary</i></p>
+            <p>Created by Colin, Iain and Mary</p>
             </div>
             </div>
             <div class="input_output">

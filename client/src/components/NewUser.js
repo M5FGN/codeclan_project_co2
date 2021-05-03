@@ -34,17 +34,20 @@ const NewUser = ({addUser}) => {
                 <h2>Create a New User</h2>
             <form onSubmit={onSubmit} id='new_user_form'>
                 <p>
-                    <label class="extra-width">Username: </label>
+                    <label>Username: </label>
+                    <br></br>
                     <input onChange={onChange} type='text' name='username' id='username' required></input>
                 </p>
 
                 <p>
                     <label>First Name: </label>
+                    <br></br>
                     <input onChange={onChange} type='text' name='forename' id='forename' required></input>
                 </p>
 
                 <p>
                     <label>Last Name: </label>
+                    <br></br>
                     <input onChange={onChange} type='text' name='lastname' id='surname' required></input>
                 </p>
 
