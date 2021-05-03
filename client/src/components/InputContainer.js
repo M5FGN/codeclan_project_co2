@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {getUsers} from '../services/MainService.js'
 import UserSelect from '../components/UserSelect.js';
 import Output from '../components/Output.js';
 import NewUser from '../components/NewUser.js';
@@ -8,24 +7,18 @@ import Travel from '../components/Travel.js';
 import Flights from '../components/Flights.js';
 import Heating from '../components/Heating.js';
 import Recycling from '../components/Recycling.js';
+import {deleteUser} from '../services/MainService.js';
 // import InputContainer from '../components/InputContainer.js';
-import OutputContainer from '../components/OutputContainer.js';
 import Logo from '../components/Logo.jpg';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import {faPaw } from '@fortawesome/free-solid-svg-icons';
 
-const InputContainer = () => {
-  
-    const [users, setUsers] = useState([]);
+const InputContainer = ({users, totalCarbonCalc, setUsers}) => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [newUserForm, setNewUserForm] = useState(null);
     const [carbonForm, setForm] = useState(null);
-    const [totalCarbon, setTotalCarbon] = useState(null);
+    
 
-
-    useEffect(() => {
-        getUsers().then(allUsers => setUsers(allUsers));
-    },[]);
 
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
@@ -63,28 +56,7 @@ const InputContainer = () => {
         totalCarbonCalc(updatedUser);
     }
 
-    // Calculate the total carbon data of a given user
-    const totalCarbonCalc = (user) => {
-        const totalCarbonData = [
-            user.footprint.diet,
-            user.footprint.air,
-            user.footprint.heating,
-            user.footprint.recycling,
-            user.footprint.commute.car,
-            user.footprint.commute.train,
-            user.footprint.commute.bus,
-            user.footprint.commute.cycling,
-            user.footprint.commute.walk
-        ];
-        let total = 0;
-        for (let val of totalCarbonData){
-            // If value IS a number, AND value is NOT null
-            if (!isNaN(val) === true && val !== null){
-                total = total + val;
-            }
-        }
-        setTotalCarbon(total);
-    }
+  
 
     // Sets the state of the current form to be displayed
     const getForm = (form, user) => {
@@ -119,6 +91,10 @@ const InputContainer = () => {
         }
     };
 
+    const handleRemove = (user) => {
+        deleteUser(user._id);
+        removeUser(user._id);
+    }
    
     return(
         // <div class="main">
@@ -148,7 +124,7 @@ const InputContainer = () => {
             {newUserForm}
 
             {/* If we have selected a User, render their saved Output */}
-            {selectedUser ? <Output user={selectedUser} removeUser={removeUser} totalCarbon={totalCarbon}/>: null}
+            {/* {selectedUser ? <Output user={selectedUser} removeUser={removeUser} totalCarbon={totalCarbon}/>: null} */}
 
             {selectedUser ?
                 <div id='current_rendered_form'>
@@ -163,6 +139,13 @@ const InputContainer = () => {
                     <button type='submit' onClick={() => {setSelectedUser(null)}}>Return to Main</button>
                 </div>
                 :null }
+
+            {selectedUser ?
+                <div>
+                    <p>To remove your account, click the 'Remove Account' button:</p>
+                    <button class="button" type='submit' onClick={() => {handleRemove(selectedUser)}}>Remove Account</button>
+                </div>
+                :null}
         </div>
     )
 }

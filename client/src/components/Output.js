@@ -1,13 +1,7 @@
 import React from "react";
-import {deleteUser} from '../services/MainService.js';
 
-const Output = ({user, removeUser, totalCarbon}) => {
-
-    //Removes users in their entirety
-    const handleRemove = () => {
-        deleteUser(user._id);
-        removeUser(user._id);
-    }
+const Output = ({user, totalCarbon}) => {
+    
 
     const diet = user.footprint.diet;
     const air = user.footprint.air;
@@ -73,8 +67,7 @@ const Output = ({user, removeUser, totalCarbon}) => {
 
             </ul>
 
-            <p>To remove your account, click the 'Remove Account' button:</p>
-            <button class="button" type='submit' onClick={handleRemove}>Remove Account</button>
+          
 
         </div>
 
