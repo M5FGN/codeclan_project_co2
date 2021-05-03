@@ -16,8 +16,9 @@ const Recycling = ({user, newData, getForm}) => {
         user.footprint['recycling'] = parseFloat(recyclingData);
         updateUser(user)
         newData(user)
-        getForm(null, user)
+        getForm(null, null)
     }
+    
     return (
 
         <div>
