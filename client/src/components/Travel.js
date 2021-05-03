@@ -92,24 +92,19 @@ const Travel = ({user, newData, getForm}) => {
     
 // 5 Functions to set the user inputs
     const onTrain = (e) => {
-        const trainCarbon = e.target.value;
-        setTrainData(trainCarbon);
+        setTrainData(e.target.value);
     };
     const onBus = (e) => {
-        const busCarbon = e.target.value;
-        setBusData(busCarbon);
+        setBusData(e.target.value);
     };
     const onCar = (e) => {
-        const carCarbon = e.target.value;
-        setCarData(carCarbon);
+        setCarData(e.target.value);
     };
     const onBike = (e) => {
-        const bikeCarbon = e.target.value;
-        setBikeData(bikeCarbon);
+        setBikeData(e.target.value);
     };
     const onWalk = (e) => {
-        const walkCarbon = e.target.value;
-        setWalkData(walkCarbon);
+        setWalkData(e.target.value);
     };
 
     const onSubmit = (e) => {
