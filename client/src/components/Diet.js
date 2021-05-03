@@ -1,18 +1,21 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Diet = ({user, newData, getForm}) => {
+const Diet = ({figures, user, newData, getForm}) => {
 
 
     const [dietData, setDietData] = useState(null);
 
     const onChange = (e) => {
         const dietData = e.target.value
+        const output = dietData * 52
+        
         // This is where we need our calculator on what to do with the dietData
         // I.e. take this value, multiply by it by some value in our API
         // Then set the diet Data for user DB, to our final dietData
 
-        setDietData(dietData);
+
+        setDietData(output);
     }
 
     const onSubmit = (e) => {
@@ -35,7 +38,7 @@ const Diet = ({user, newData, getForm}) => {
                 <h4>Choose the value which best describes your meat consumption ...</h4>
 
                 {/* I have shoved in some values for now to test the submit */}
-                <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value="1000" required/>
+                <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value={figures.meat7} required/>
                     <label for="meat_full">I eat meat 7 days a week.</label>
                 </p>
                 <p>

@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Travel = ({user, newData, getForm}) => {
+const Travel = ({figures, user, newData, getForm}) => {
 
     const [train, setTrain] = useState(null);
     const [bus, setBus] = useState(null);
     const [car, setCar] = useState(null);
-    const [bike, setBike] = useState(null);
+    const [motorBike, setMotorBike] = useState(null);
     const [walk, setWalk] = useState(null);
 
     const [trainData, setTrainData] = useState(null);
@@ -90,19 +90,19 @@ const Travel = ({user, newData, getForm}) => {
 // 5 Functions to set the user inputs
     const onTrain = (e) => {
         const trainCarbon = e.target.value;
-        setTrainData(trainCarbon);
+        setTrainData(trainCarbon * figures.train);
     };
     const onBus = (e) => {
         const busCarbon = e.target.value;
-        setBusData(busCarbon);
+        setBusData(busCarbon * figures.transport.bus);
     };
     const onCar = (e) => {
         const carCarbon = e.target.value;
         setCarData(carCarbon);
     };
-    const onBike = (e) => {
+    const onMotorBike = (e) => {
         const bikeCarbon = e.target.value;
-        setBikeData(bikeCarbon);
+        setMotorBikeData(bikeCarbon);
     };
     const onWalk = (e) => {
         const walkCarbon = e.target.value;

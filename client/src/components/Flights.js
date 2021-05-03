@@ -1,14 +1,16 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Flights = ({user, newData, getForm}) => {
+const Flights = ({figures, user, newData, getForm}) => {
     const [flightData, setFlightData] = useState(null);
 
     const onChange = (e) => {
         const flightData = e.target.value
+        const result = flightData * figures.airtravel.airtime
+
         // This is where we need our calculator on what to do with the dietData
 
-        setFlightData(flightData);
+        setFlightData(result);
     }
 
     const onSubmit = (e) => {

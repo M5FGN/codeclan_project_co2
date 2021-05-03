@@ -16,10 +16,16 @@ MongoClient.connect('mongodb://localhost:27017')
     app.use('/users', usersRouter);
 });
 
-// We need another database connected to grab our API data
-// Same structure as above, but for app.use('/api') ? 
-// And a different port
+MongoClient.connect('mongodb://localhost:27017')
+.then((client) => {
+    const db = client.db('projectco2');
+    const figuresCollection = db.collection('carbonFootprints');
+    const figuresRouter = createRouter(figuresCollection);
+    app.use('/figures', figuresRouter);
+});
 
 app.listen(5000, function() {
     console.log(`Project CO2 server running on port ${this.address().port}`)
 });    
+
+

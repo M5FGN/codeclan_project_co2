@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Recycling = ({user, newData, getForm}) => {
+const Recycling = ({figures, user, newData, getForm}) => {
 
     const [recyclingData, setRecyclingData] = useState(null);
 
@@ -28,19 +28,19 @@ const Recycling = ({user, newData, getForm}) => {
                 <h4>Choose the value which best describes your recycling activities ...</h4>
        
                 <p>
-                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_all" value="10" required/>
+                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_all" value={figures.recycling.always-recycled} required/>
                 <label for="recycling_all">I recycle all of the time.</label>
                 </p>
                 <p>
-                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_most" value="50" />
+                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_most" value={figures.recycling.mostly-recycled} />
                 <label for="recycling_most">I recycle most of the time.</label>
                 </p>
                 <p>
-                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_some" value="100" />
+                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_some" value={figures.recycling.some-recycled} />
                 <label for="recycling_some">I recycle some of the time.</label>
                 </p>
                 <p>
-                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_none" value="150" />
+                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_none" value={figures.recycling.never-recycled} />
                 <label for="recycling_none">I don't recycle anything.</label>
                 </p>
 

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Heating = ({user, newData, getForm}) => {
+const Heating = ({figures, user, newData, getForm}) => {
 
     const [heatingTypeData, setHeatingTypeData] = useState(0);
     const [numberRoomsData, setNumberRoomsData] = useState(0);
@@ -11,7 +11,8 @@ const Heating = ({user, newData, getForm}) => {
         // let heating_api = 0;
         if (heatingType === 'gas'){
             // API value = 300 kg CO2/year (random guess)
-            setHeatingTypeData(300)
+
+            setHeatingTypeData(figures.gas)
         }
         if (heatingType === 'electricity'){
             // API value = 500 kg CO2/year (random guess)

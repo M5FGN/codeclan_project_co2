@@ -4,9 +4,11 @@ import InputContainer from '../components/InputContainer.js';
 import OutputContainer from '../components/OutputContainer.js';
 import './main.css';
 import Logo from '../components/Logo.jpg';
+import {getFigures} from '../services/MainService.js'
 
 const Main = () => {
-
+    
+    const [figures, setFigures]=useState([])
     const [users, setUsers] = useState([]);
     const [totalCarbon, setTotalCarbon] = useState(null);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -14,6 +16,12 @@ const Main = () => {
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
     },[]);
+    useEffect(() => {
+      getFigures()
+      .then(figures => setFigures(figures.Emission-Sources))
+    }, []);
+
+
 
     // Calculate the total carbon data of a given user
     const totalCarbonCalc = (user) => {
@@ -53,7 +61,7 @@ const Main = () => {
             <div class="input_output">
 
                 <div class="input">
-                    < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
+                    < InputContainer figures = {figures} totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 <div class="output">
                     {selectedUser !== null ? < OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> :null}
