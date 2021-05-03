@@ -1,11 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {getUsers} from '../services/MainService.js'
 import InputContainer from '../components/InputContainer.js';
 import OutputContainer from '../components/OutputContainer.js';
 import './main.css';
 import Logo from '../components/Logo.jpg';
 
 const Main = () => {
-   
+
+    const [users, setUsers] = useState([]);
+    const [totalCarbon, setTotalCarbon] = useState(null);
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    useEffect(() => {
+        getUsers().then(allUsers => setUsers(allUsers));
+    },[]);
+
+    // Calculate the total carbon data of a given user
+    const totalCarbonCalc = (user) => {
+        const totalCarbonData = [
+            user.footprint.diet,
+            user.footprint.air,
+            user.footprint.heating,
+            user.footprint.recycling,
+            user.footprint.commute.car,
+            user.footprint.commute.train,
+            user.footprint.commute.bus,
+            user.footprint.commute.cycling,
+            user.footprint.commute.walk
+        ];
+        let total = 0;
+        for (let val of totalCarbonData){
+            // If value IS a number, AND value is NOT null
+            if (!isNaN(val) === true && val !== null){
+                total = total + val;
+            }
+        }
+        setTotalCarbon(total);
+    };
+
     return(
         <div class="main">
             <div class="white">
@@ -21,10 +53,10 @@ const Main = () => {
             <div class="input_output">
 
                 <div class="input">
-                    < InputContainer />
+                    < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 <div class="output">
-                    < OutputContainer />
+                    {selectedUser !== null ? < OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> :null}
                 </div>
             </div>
 

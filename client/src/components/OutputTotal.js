@@ -1,12 +1,14 @@
 import React from 'react';
 import OdoTest from '../components/OdoTest'
 
-const OutputTotal = () => {
+const OutputTotal = ({totalCarbon}) => {
 
     return (
         <div>
-            This is the Output total.
+
             < OdoTest />
+            <h4>Total Carbon:</h4>
+            <p>{totalCarbon}</p>
         </div>
     )
 }
