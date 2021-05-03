@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import UserSelect from '../components/UserSelect.js';
 import NewUser from '../components/NewUser.js';
 import Diet from '../components/Diet.js';
@@ -7,12 +7,20 @@ import Flights from '../components/Flights.js';
 import Heating from '../components/Heating.js';
 import Recycling from '../components/Recycling.js';
 import {deleteUser} from '../services/MainService.js';
+import {getFigures} from '../services/MainService.js'
 
 
 const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSelectedUser}) => {
+    const [figures, setFigures] = useState([]);
     const [newUserForm, setNewUserForm] = useState(null);
     const [carbonForm, setForm] = useState(null);
-    
+
+
+    useEffect(() => {
+        getFigures()
+        .then(figures => setFigures(figures[0].emission_sources))
+      }, []);
+
     // Takes in our selected user, and sets selected user state
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
@@ -20,6 +28,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         getForm('Diet', user);
         totalCarbonCalc(user);
         getNewUserForm(false);
+        console.log(figures);
     };
 
     // Update users list locally when we add a new user
@@ -52,19 +61,19 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
     // Sets the state of the current form to be displayed
     const getForm = (form, user) => {
         if (form === 'Diet'){
-            setForm(<Diet user={user} newData={updateNewData} getForm={getForm}/>)
+            setForm(<Diet user={user} newData={updateNewData} getForm={getForm} figures={figures}/>)
         };
         if (form === 'Travel'){
-            setForm(<Travel user={user} newData={updateNewData} getForm={getForm}/>)
+            setForm(<Travel user={user} newData={updateNewData} getForm={getForm} figures={figures}/>)
         };
         if (form === 'Flights'){
-            setForm(<Flights user={user} newData={updateNewData} getForm={getForm}/>)
+            setForm(<Flights user={user} newData={updateNewData} getForm={getForm} figures={figures}/>)
         };
         if (form === 'Heating'){
-            setForm(<Heating user={user} newData={updateNewData} getForm={getForm}/>)
+            setForm(<Heating user={user} newData={updateNewData} getForm={getForm} figures={figures}/>)
         };
         if (form === 'Recycling'){
-            setForm(<Recycling user={user} newData={updateNewData} getForm={getForm}/>)
+            setForm(<Recycling user={user} newData={updateNewData} getForm={getForm} figures={figures}/>)
         } 
         if (form === null){
             setForm(null);

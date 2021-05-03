@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Travel = ({user, newData, getForm}) => {
+const Travel = ({user, newData, getForm, figures}) => {
 
     const [train, setTrain] = useState(null);
     const [bus, setBus] = useState(null);
@@ -89,22 +89,40 @@ const Travel = ({user, newData, getForm}) => {
             setWalk(null)
         }
     }
-    
+
+    const multiplier = 5*52;
+    const api = figures.transport;
+
 // 5 Functions to set the user inputs
     const onTrain = (e) => {
-        setTrainData(e.target.value);
+        const input = e.target.value;
+        const apiData = api.train;
+        const result = input * apiData * multiplier;
+        setTrainData(result);
     };
     const onBus = (e) => {
-        setBusData(e.target.value);
+        const input = e.target.value;
+        const apiData = api.bus;
+        const result = input * apiData * multiplier;
+        setBusData(result);
     };
     const onCar = (e) => {
-        setCarData(e.target.value);
+        const input = e.target.value;
+        const apiData = api.petrolcar;
+        const result = input * apiData * multiplier;
+        setCarData(result);
     };
     const onBike = (e) => {
-        setBikeData(e.target.value);
+        const input = e.target.value;
+        const apiData = api.cycling;
+        const result = input * apiData * multiplier;
+        setBikeData(result);
     };
     const onWalk = (e) => {
-        setWalkData(e.target.value);
+        const input = e.target.value;
+        const apiData = api.walking;
+        const result = input * apiData * multiplier;
+        setWalkData(result);
     };
 
     const onSubmit = (e) => {
