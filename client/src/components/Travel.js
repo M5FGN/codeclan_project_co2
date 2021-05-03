@@ -113,19 +113,19 @@ const Travel = ({user, newData, getForm}) => {
         e.preventDefault();
         if (train !== null){
             user.footprint.commute['train'] = parseFloat(trainData);
-        };
+        } else {user.footprint.commute['bus'] = null};
         if (bus !== null){
             user.footprint.commute['bus'] = parseFloat(busData);
-        };
+        } else {user.footprint.commute['bus'] = null};
         if (car !== null){
             user.footprint.commute['car'] = parseFloat(carData);
-        };
+        } else {user.footprint.commute['car'] = null};
         if (bike !== null){
             user.footprint.commute['cycling'] = parseFloat(bikeData);
-        };
+        } else {user.footprint.commute['cycling'] = null};
         if (walk !== null){
             user.footprint.commute['walk'] = parseFloat(walkData);
-        };
+        } else {user.footprint.commute['walk'] = null};
         updateUser(user);
         newData(user);
         getForm('Flights', user);
