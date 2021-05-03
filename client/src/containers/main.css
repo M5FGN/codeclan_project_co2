@@ -85,4 +85,12 @@ padding-right: 22px;
 }
 
 
+select { 
+    padding: 6px;
+}
+
+input[type="number"] {
+    padding: 6px;
+}
+
 

@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {newUser} from '../services/MainService';
-import './NewUser.css';
 
 const NewUser = ({addUser}) => {
 
