@@ -40,7 +40,7 @@ const Heating = ({user, newData, getForm}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['heating'] = heatingCarbon
+        user.footprint['heating'] = parseFloat(heatingCarbon);
         updateUser(user)
         newData(user)
         getForm('Recycling', user)
