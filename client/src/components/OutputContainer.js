@@ -20,8 +20,9 @@ const OutputContainer = ({user, totalCarbon}) => {
                 {/* <h4>{user.forename}, this is how your <br></br>Carbon Foot Print is made up ...</h4> */}
                 <Output user={user}/>
             </div>
+    
                 < Chart />
-   
+
         </div>
     )
 

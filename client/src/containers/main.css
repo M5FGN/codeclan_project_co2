@@ -27,6 +27,9 @@ body {
     margin: 20px;
 } 
 
+/* .input {
+    padding-right: 10px;
+} */
 .output{
     border-radius: 10px;
     border: 1px solid #3ca55c;
@@ -59,7 +62,12 @@ form {
     margin: 20px;
     border-radius: 10px;
     text-align: left;
-    padding-left: 20px;
+    padding-right: 20px;
+    /* padding-left: 20px; */
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-left: 20px;
 }
 
 label, h4 {
@@ -72,6 +80,8 @@ h4 {
     text-align: center;
     font-family: 'Monda', sans-serif;
     padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 label {
@@ -91,6 +101,7 @@ select {
 
 input[type="number"], input[type="text"] {
     padding: 6px;
+    margin-left: 20px;
 }
 
 p {
@@ -114,7 +125,35 @@ p {
     margin: 0px;
 }
 
-
 hr {
     width: 75%;
 }
+
+@media screen and (max-width: 1085px) {
+    .input, .output{
+        width: 90%;
+        margin: 20px;
+    } 
+    form {
+        text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 830px) {
+    .header_text {
+        padding-top: 0px;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    .logo, .header_text {
+        width: 90%;
+    } 
+  }
+
+  @media screen and (max-width: 500px) {
+    .logo_img {
+        height: 100px;
+        width: 200px;
+      }
+  }

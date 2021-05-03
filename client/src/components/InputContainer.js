@@ -103,8 +103,8 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
 
              {selectedUser ? 
                 <div>
-                    <h4>Return to main page</h4>
-                    <p>You can view other user data from the home page</p>
+                    <h4>Return to Home page</h4>
+                    <p>Return to the Home Page to Log In as a different user ...</p>
                     <button class="button" type='submit' onClick={() => {setSelectedUser(null)}}>Return to Home</button>
                 </div>
                 :null }
@@ -112,7 +112,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
             {selectedUser ?
                 <div>
                     <h4>Delete your User Account</h4>
-                    <p>To remove your account, click the 'Remove Account' button:</p>
+                    <p>To remove your account, click 'Remove Account' ...</p>
                     <button class="button" type='submit' onClick={() => {handleRemove(selectedUser)}}>Remove Account</button>
                 </div>
                 :null}
