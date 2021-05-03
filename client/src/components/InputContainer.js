@@ -7,10 +7,7 @@ import Flights from '../components/Flights.js';
 import Heating from '../components/Heating.js';
 import Recycling from '../components/Recycling.js';
 import {deleteUser} from '../services/MainService.js';
-// import InputContainer from '../components/InputContainer.js';
-import Logo from '../components/Logo.jpg';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {faPaw } from '@fortawesome/free-solid-svg-icons';
+
 
 const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSelectedUser}) => {
     const [newUserForm, setNewUserForm] = useState(null);
@@ -114,6 +111,7 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
 
             {selectedUser ?
                 <div>
+                    <h4>Delete your User Account</h4>
                     <p>To remove your account, click the 'Remove Account' button:</p>
                     <button class="button" type='submit' onClick={() => {handleRemove(selectedUser)}}>Remove Account</button>
                 </div>

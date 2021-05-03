@@ -55,9 +55,9 @@ const Main = () => {
                 <div class="input">
                     < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
-                <div class="output">
-                    {selectedUser !== null ? < OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> :null}
-                </div>
+                
+                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> </div>:null}
+                
             </div>
 
         </div>

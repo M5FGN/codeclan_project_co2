@@ -12,9 +12,9 @@ class OdoTest extends React.Component {
       odometerValue: 0
     };
   }
-
+  
   componentDidMount() {
-    this.setState({ odometerValue: 1000 });
+    this.setState({ odometerValue: this.props.totalCarbon});
   }
 
   render() {
@@ -22,7 +22,7 @@ class OdoTest extends React.Component {
     return (
       <div>
 
-        <Odometer format="d" duration={1000} value={odometerValue} />
+        <Odometer format="d" duration={1000} value={this.props.totalCarbon} />
       </div>
     );
   }
