@@ -31,9 +31,9 @@ const InputContainer = () => {
     // Also sets the dietForm to render the Diet.js
     const onSelectedUser = (user) => {
         setSelectedUser(user);
-        getForm('Diet', user)
-        // Set the state of current carbon total
+        getForm('Diet', user);
         totalCarbonCalc(user);
+        getNewUserForm(false);
     };
 
     // Update users list locally when we add a new user
@@ -143,7 +143,7 @@ const InputContainer = () => {
         //     </div>
             <div>
 
-            <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>
+            {selectedUser === null ? <UserSelect users={users} onSelectedUser={onSelectedUser} getForm={getNewUserForm}/>: null}
            
             {newUserForm}
 
@@ -155,6 +155,14 @@ const InputContainer = () => {
                     {carbonForm}
                 </div>
              : null}
+
+             {selectedUser ? 
+                <div>
+                    <h3>Return to main page</h3>
+                    <p>You can view other user data from the main page</p>
+                    <button type='submit' onClick={() => {setSelectedUser(null)}}>Return to Main</button>
+                </div>
+                :null }
         </div>
     )
 }

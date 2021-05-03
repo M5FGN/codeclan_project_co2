@@ -35,7 +35,7 @@ const Diet = ({user, newData, getForm}) => {
                 <h4>Choose the value which best describes your meat consumption ...</h4>
 
                 {/* I have shoved in some values for now to test the submit */}
-                <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value="1000" />
+                <p><input onChange={onChange} type="radio" name="meat_level" id="meat_full" value="1000" required/>
                     <label for="meat_full">I eat meat 7 days a week.</label>
                 </p>
                 <p>

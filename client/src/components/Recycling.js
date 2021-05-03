@@ -27,7 +27,7 @@ const Recycling = ({user, newData, getForm}) => {
                 <h4>Choose the value which best describes your recycling activities ...</h4>
        
                 <p>
-                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_all" value="10" />
+                <input onChange={onChange} type="radio" name="recycling_level" id="recycling_all" value="10" required/>
                 <label for="recycling_all">I recycle all of the time.</label>
                 </p>
                 <p>

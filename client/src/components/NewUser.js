@@ -36,17 +36,17 @@ const NewUser = ({addUser}) => {
             <form onSubmit={onSubmit} id='new_user_form'>
                 <p>
                     <label class="extra-width">Username: </label>
-                    <input onChange={onChange} type='text' name='username' id='username'></input>
+                    <input onChange={onChange} type='text' name='username' id='username' required></input>
                 </p>
 
                 <p>
                     <label>First Name: </label>
-                    <input onChange={onChange} type='text' name='forename' id='forename'></input>
+                    <input onChange={onChange} type='text' name='forename' id='forename' required></input>
                 </p>
 
                 <p>
                     <label>Last Name: </label>
-                    <input onChange={onChange} type='text' name='lastname' id='surname'></input>
+                    <input onChange={onChange} type='text' name='lastname' id='surname' required></input>
                 </p>
 
                 <input class="button" type='submit' value='Create User' id='submit'></input>
