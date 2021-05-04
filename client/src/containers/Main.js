@@ -34,34 +34,42 @@ const Main = () => {
         setTotalCarbon(total);
     };
     
-    // For each user in users
-        // const totalDiet = 
+
+
+
     let averageData = [];
+    let averageTotal = 0;
 
     const averageCalc = () => {
 
         const len = users.length;
 
         // Must be 0,0.. to avoid index issues
-
         let totalsArray = [0,0,0,0,0]
 
         for (let user of users){
             const d = user.footprint;
-            const userData = [d.diet, d.travel, d.air, d.heating, d.recycling]
+            const userData = [d.diet, d.commute.travelTotal, d.air, d.heating, d.recycling]
 
             for (let i=0; i<userData.length; i++){
                 if (userData[i] !== null){
-                    totalsArray[i] = userData[i]
+                    totalsArray[i] += userData[i]
                 };
             };
         }; 
 
         averageData = totalsArray.map(val => val/len);
+        console.log(averageData)
         
+        for (let val of averageData){
+            averageTotal += val;
+        }
     }
+        
+
     
     averageCalc()
+
 
     return(
         <div class="main">
@@ -81,7 +89,7 @@ const Main = () => {
                     < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 
-                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon} averageData={averageData}/> </div>:null}
+                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon} averageData={averageData} averageTotal={averageTotal}/> </div>:null}
                 
             </div>
 

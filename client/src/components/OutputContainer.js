@@ -3,7 +3,7 @@ import Chart from '../components/Chart';
 import Output from '../components/Output';
 import OutputTotal from '../components/OutputTotal';
 
-const OutputContainer = ({user, totalCarbon, averageData}) => {
+const OutputContainer = ({user, totalCarbon, averageData, averageTotal}) => {
 
     return (
         <div>
@@ -13,7 +13,7 @@ const OutputContainer = ({user, totalCarbon, averageData}) => {
             {/* </div> */}
         
             {totalCarbon > 0 ?
-                < OutputTotal totalCarbon={totalCarbon}/>
+                < OutputTotal totalCarbon={totalCarbon} averageTotal={averageTotal}/>
                 : null}
 
             <div>
