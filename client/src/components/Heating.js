@@ -1,33 +1,31 @@
 import React, {useState} from "react";
 import {updateUser} from '../services/MainService.js'
 
-const Heating = ({user, newData, getForm}) => {
+const Heating = ({user, newData, getForm, figures}) => {
 
     const [heatingTypeData, setHeatingTypeData] = useState(0);
-    const [numberRoomsData, setNumberRoomsData] = useState(0);
+    const [numberRooms, setNumberRooms] = useState(0);
+
 
     const onTypeChange = (e) => {
         const heatingType = e.target.id;
-        // let heating_api = 0;
+        
         if (heatingType === 'gas'){
-            // API value = 300 kg CO2/year (random guess)
-            setHeatingTypeData(300)
+            setHeatingTypeData(figures.gas.rooms_1)
         }
         if (heatingType === 'electricity'){
-            // API value = 500 kg CO2/year (random guess)
-            setHeatingTypeData(500)
+            setHeatingTypeData(figures.electricity.rooms_1)
         }
     }
 
     const onValueChange = (e) => {
-        const numRooms = parseFloat(e.target.value);
-        const carbon = numRooms // Times some value in API
-        setNumberRoomsData(carbon)
+        setNumberRooms(e.target.value)
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        user.footprint['heating'] = (heatingTypeData*numberRoomsData);
+        // Heating data is kg CO2/y for 1 room, going up by 1.3 for additional rooms
+        user.footprint['heating'] = (heatingTypeData*numberRooms*1.3);
         updateUser(user);
         newData(user);
         getForm('Recycling', user);
@@ -41,11 +39,11 @@ const Heating = ({user, newData, getForm}) => {
             <h4>Choose the type of heating in your house ...</h4>
             
             <p>
-            <input onChange={onTypeChange} type="radio" name="heating_type" id="gas" value="" required/>
+            <input onChange={onTypeChange} type="radio" name="heating_type" id="gas" required/>
             <label for="gas">Gas</label>
             </p>
             <p>
-            <input onChange={onTypeChange} type="radio" name="heating_type" id="electricity" value="" />
+            <input onChange={onTypeChange} type="radio" name="heating_type" id="electricity" />
             <label for="electricity">Electricity</label>
             </p>
 

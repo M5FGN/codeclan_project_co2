@@ -14,6 +14,7 @@ const Main = () => {
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
     },[]);
+    
 
     // Calculate the total carbon data of a given user
     const totalCarbonCalc = (user) => {

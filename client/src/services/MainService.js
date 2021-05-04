@@ -1,7 +1,9 @@
 const baseURL = 'http://localhost:5000/users/';
+const figureURL = 'http://localhost:5000/figures/';
 
 // Grab all our users from the db
 export const getUsers = () => fetch(baseURL).then(res => res.json());
+export const getFigures = () => fetch(figureURL).then(res => res.json());
 
 export const newUser = (newUser) => {
     return fetch(baseURL, {
