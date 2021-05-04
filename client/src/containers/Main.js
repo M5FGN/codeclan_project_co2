@@ -37,6 +37,7 @@ const Main = () => {
     // For each user in users
         // const totalDiet = 
     let averageData = [];
+    let averageTotal = 0;
 
     const averageCalc = () => {
         const len = users.length;
@@ -50,7 +51,7 @@ const Main = () => {
         for (let user of users){
 
             let diet = user.footprint.diet;
-            let travel = user.footprint.travel;
+            let travel = user.footprint.commute.travelTotal;
             let air = user.footprint.air;
             let heating = user.footprint.heating;
             let recycling = user.footprint.recycling;
@@ -71,16 +72,22 @@ const Main = () => {
                 totRecycling += recycling;
             };
         }
-        const avgDiet = (totDiet / len);
-        const avgTravel = (totTravel / len);
-        const avgAir = (totAir / len);
-        const avgHeating = (totHeating / len);
-        const avgRecycling = (totRecycling / len);
+        const avgDiet = parseInt(totDiet / len);
+        const avgTravel = parseInt(totTravel / len);
+        const avgAir = parseInt(totAir / len);
+        const avgHeating = parseInt(totHeating / len);
+        const avgRecycling = parseInt(totRecycling / len);
 
         averageData = [avgDiet, avgTravel, avgAir, avgHeating, avgRecycling];
+        
+        for (let val of averageData){
+            averageTotal += val;
+        }
+      
     }
     
     averageCalc()
+
 
     return(
         <div class="main">
@@ -100,7 +107,7 @@ const Main = () => {
                     < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 
-                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon} averageData={averageData}/> </div>:null}
+                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon} averageData={averageData} averageTotal={averageTotal}/> </div>:null}
                 
             </div>
 
