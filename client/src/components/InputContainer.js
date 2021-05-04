@@ -28,7 +28,6 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
         getForm('Diet', user);
         totalCarbonCalc(user);
         getNewUserForm(false);
-        console.log(figures);
     };
 
     // Update users list locally when we add a new user

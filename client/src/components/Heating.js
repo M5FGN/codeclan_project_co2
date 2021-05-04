@@ -25,7 +25,7 @@ const Heating = ({user, newData, getForm, figures}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         // Heating data is kg CO2/y for 1 room, going up by 1.3 for additional rooms
-        user.footprint['heating'] = (heatingTypeData*numberRooms*1.3);
+        user.footprint['heating'] = parseInt(heatingTypeData*numberRooms*1.3);
         updateUser(user);
         newData(user);
         getForm('Recycling', user);

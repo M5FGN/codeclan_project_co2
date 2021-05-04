@@ -18,7 +18,8 @@ const NewUser = ({addUser}) => {
                 train: null,
                 bus: null,
                 cycling: null,
-                walk: null
+                walk: null,
+                travelTotal: null
             },
             air : null,
             diet: null,
