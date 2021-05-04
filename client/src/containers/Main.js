@@ -17,25 +17,16 @@ const Main = () => {
   
     // Calculate the total carbon data of a given user
     const totalCarbonCalc = (user) => {
-        const totalCarbonData = [
-            user.footprint.diet,
-            user.footprint.air,
-            user.footprint.heating,
-            user.footprint.recycling,
-            user.footprint.commute.travelTotal
-        ];
+        const d = user.footprint;
+        const totalCarbonData = [d.diet, d.air, d.heating, d.recycling, d.commute.travelTotal];
         let total = 0;
         for (let val of totalCarbonData){
-            // If value IS a number, AND value is NOT null
             if (!isNaN(val) === true && val !== null){
                 total = total + val;
             }
         }
         setTotalCarbon(total);
     };
-    
-
-
 
     let averageData = [];
     let averageTotal = 0;
@@ -64,11 +55,8 @@ const Main = () => {
         for (let val of averageData){
             averageTotal += val;
         }
-    }
-        
-
-    
-    averageCalc()
+    };
+    averageCalc();
 
 
     return(
