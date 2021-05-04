@@ -8,15 +8,13 @@ const Travel = ({user, newData, getForm, figures}) => {
     const [car, setCar] = useState(null);
     const [bike, setBike] = useState(null);
     const [walk, setWalk] = useState(null);
-    const methods = [train, bus, car, bike, walk];
 
     const [trainData, setTrainData] = useState(null);
     const [busData, setBusData] = useState(null);
     const [carData, setCarData] = useState(null);
     const [bikeData, setBikeData] = useState(null);
     const [walkData, setWalkData] = useState(null);
-
-    const methods_data = [trainData, busData, carData, bikeData, walkData];
+  
 
 
 // Five onChange functions for checkboxes to toggle render of miles per type of transport inputs
@@ -127,19 +125,26 @@ const Travel = ({user, newData, getForm, figures}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const dataLoop = () => {
+
+        const dbData = () => {
+
+            const methods = [train, bus, car, bike, walk];
+            const methods_data = [trainData, busData, carData, bikeData, walkData];
             const strings = ['train', 'bus', 'car', 'cycling', 'walk'];
-
-            for (let method of methods){
-                const i = methods.indexOf(method);
+        
+            for (let i = 0; i < methods.length; i++){
                 const string = strings[i];
-                if (method !== null){
-                user.footprint.commute[string] = parseFloat(methods_data[i])
-                } else {user.footprint.commute[string]=null}
+                if (methods[i] !== null){
+                user.footprint.commute[string] = parseInt(methods_data[i]);
+                console.log(`${string} data : ${methods_data[i]}`);
+                }
+                else {
+                    user.footprint.commute[string] = null
+                console.log(`This one is null: ${string}`)}
             }
-            };
+        }
 
-        dataLoop();
+        dbData();
         updateUser(user);
         newData(user);
         getForm('Flights', user);
