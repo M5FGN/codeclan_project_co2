@@ -3,7 +3,7 @@ import Chart from '../components/Chart';
 import Output from '../components/Output';
 import OutputTotal from '../components/OutputTotal';
 
-const OutputContainer = ({user, totalCarbon}) => {
+const OutputContainer = ({user, totalCarbon, averageData}) => {
 
     return (
         <div>
@@ -21,7 +21,7 @@ const OutputContainer = ({user, totalCarbon}) => {
                 <Output user={user}/>
             </div>
     
-                < Chart />
+                < Chart user={user} averageData={averageData}/>
 
         </div>
     )
