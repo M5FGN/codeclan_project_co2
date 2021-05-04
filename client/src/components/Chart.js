@@ -32,8 +32,8 @@ const Chart = ({user}) =>
   const air = user.footprint.air;
   const heating = user.footprint.heating;
   const recycling = user.footprint.recycling;
-  const car = user.footprint.commute.car; // Remove this line and uncomment below one when github is up to date with new travelTotal
-  // const travelTotal = user.footprint.commute.travelTotal;
+  const car = user.footprint.commute.car;
+  const travelTotal = user.footprint.commute.travelTotal;
 
   
   let title = '';
