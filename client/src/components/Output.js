@@ -11,6 +11,7 @@ const Output = ({user}) => {
     const bus = user.footprint.commute.bus;
     const cycle = user.footprint.commute.cycling;
     const walk = user.footprint.commute.walk;
+    const travelTotal = user.footprint.commute.travelTotal;
     const first_name = user.forename;
 
     return (
@@ -22,6 +23,9 @@ const Output = ({user}) => {
                 {!isNaN(bus) && bus !== null ? <p class="outtxt">Travelling by Bus contributes {bus}kgs to your carbon footprint.</p> : null}
                 {!isNaN(cycle) && cycle !== null ? <p class="outtxt">Cycling contributes {cycle}kgs to your carbon footprint.</p> : null}
                 {!isNaN(walk) && walk !== null ? <p class="outtxt">Walking contributes {walk}kgs to your carbon footprint.</p> : null}
+
+                {!isNaN(travelTotal) && travelTotal !== null ? <p class="outtxt">Your total commute contributes {travelTotal}kgs to your carbon footprint.</p> : null}
+
                 {!isNaN(air) && air !== null ? <p class="outtxt">Air travel contributes {air}kgs to your carbon footprint.</p> : null}
                 {!isNaN(heating) && heating !== null ? <p class="outtxt">Your Home Heating contributes {heating}kgs to your carbon footprint.</p> : null }
                 {!isNaN(recycling) && recycling !== null ? <p class="outtxt">Your Recycling habits contribute {recycling}kgs to your carbon footprint.</p> : null}

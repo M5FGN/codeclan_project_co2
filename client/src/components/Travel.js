@@ -123,32 +123,36 @@ const Travel = ({user, newData, getForm, figures}) => {
         setWalkData(result);
     };
 
+
     const onSubmit = (e) => {
         e.preventDefault();
 
         const dbData = () => {
-
             const methods = [train, bus, car, bike, walk];
             const methods_data = [trainData, busData, carData, bikeData, walkData];
             const strings = ['train', 'bus', 'car', 'cycling', 'walk'];
         
+            let travelTotal = 0;
+
             for (let i = 0; i < methods.length; i++){
                 const string = strings[i];
                 if (methods[i] !== null){
                 user.footprint.commute[string] = parseInt(methods_data[i]);
-                console.log(`${string} data : ${methods_data[i]}`);
+                travelTotal += (methods_data[i]);
                 }
                 else {
                     user.footprint.commute[string] = null
-                console.log(`This one is null: ${string}`)}
-            }
-        }
+                }
+            user.footprint.commute['travelTotal'] = parseInt(travelTotal);
+            };
+        };
+            
 
         dbData();
         updateUser(user);
         newData(user);
         getForm('Flights', user);
-    }
+        }
 
     return (
 
