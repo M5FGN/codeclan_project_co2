@@ -12,31 +12,21 @@ db.dropDatabase();
 
 db.users.insertMany([
     {username: 'Bigtuna',
-        // This will be used for our list, comparison, or future login option
     forename: 'Jim',
     surname: 'Halper',
     footprint: {
         commute: {
             car: 1000, 
-                //Calculated from miles per day * CO2/mile,  * 365
-                // user.footprint.commute.car
-            train: 500, 
-                // As above
-                // user.footprint.commute.train
+            train: 300, 
             bus: null,
             cycling: null,
             walk: null,
+            travelTotal: 1300
         },
         air: 1000, 
-            // Calculated from hours in air * CO2/hr
-            // user.footprint.air
-        diet: 1000, 
-            // Calculated from "x amount of a week = this CO2", * 52 weeks
-            // user.footprint.diet
-        recycling: 500, 
-            // user.footprint.recycling
-        heating: 1000 
-            // user.footprint.heating
+        diet: 400, 
+        recycling: 760, 
+        heating: 9500
     }},
 
     {username: 'Nard Dog',
@@ -46,14 +36,15 @@ db.users.insertMany([
     commute: {
        car: null, 
        train: null, 
-       bus: 400,
+       bus: 600,
        cycling: null,
        walk: null,
+       travelTotal: 600
     },
-    air: 20, 
-    diet: 10000, 
-    recycling: 2000, 
-    heating: 4000 
+    air: 650, 
+    diet: 300, 
+    recycling: 650, 
+    heating: 8500 
     }},
 
     {username: 'Beesly',
@@ -65,12 +56,13 @@ db.users.insertMany([
        train: null, 
        bus: 100,
        cycling: null,
-       walk: 20,
+       walk: 2,
+       travelTotal: 102
     },
     air: 2000, 
-    diet: 6000, 
-    recycling: 500, 
-    heating: 3000 
+    diet: 400, 
+    recycling: 650, 
+    heating: 10000 
     }},
 
     {username: 'Plop',
@@ -83,25 +75,26 @@ db.users.insertMany([
        bus: null,
        cycling: 50,
        walk: null,
+       travelTotal: 550
     },
     air: null, 
-    diet: 100, 
-    recycling: 100, 
+    diet: 250, 
+    recycling: 300, 
     heating: 6000 
     }}
 ]);
 
 db.figures.insertMany([
-    {emission_sources : {
-        meat:
+    {"emission_sources" : {
+        "meat":
             {
-            meat: 1.5,
-            meat2: 3,
-            meat3: 4.5,
-            meat4: 6,
-            meat5: 7.5,
-            meat6: 9,
-            meat7: 10
+            "meat": "1.5",
+            "meat2": "3",
+            "meat3": "4.5",
+            "meat4": "6",
+            "meat5": "7.5",
+            "meat6": "9",
+            "meat7": "10"
             },
         "transport":
             {

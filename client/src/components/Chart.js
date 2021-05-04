@@ -16,15 +16,61 @@ import React from 'react'
 import { render } from 'react-dom'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+
+// Code to be changed
+
+// For a new User the Initial State of Data and Title should show the Average CO2 Footprint - prepopulate list as below (with correct numbers)
+// Once a new user adds Diet the list should delete all other elements and only show Diet, for each form the user completes a new line 
+        //should be added to the list with the relevant key and value.
+
+// For an Existing User the List should populate with the figures they have entered previously then update as they change the numbers.
+        //The title should be "Your Carbon Footprint"
  
-const options = {
+const Chart = ({user, averageData}) => 
+{
+  const diet = user.footprint.diet;
+  const air = user.footprint.air;
+  const heating = user.footprint.heating;
+  const recycling = user.footprint.recycling;
+  const travelTotal = user.footprint.commute.travelTotal;
+
+  
+  let title = '';
+  let data = [];
+  const chooseData = () => {
+    // If diet is null, this means there is no user data yet. So render the average
+    // If diet is not null, this means we have some user data, so render their personal chart
+    if (diet !== null){
+      title = 'Your <br> Carbon <br> Footprint'
+      data = [
+        ['Diet', diet],
+        ['Travel', travelTotal], 
+        ['Flights', air],
+        ['Heating', heating],
+        ['Recycling', recycling]
+      ];
+    };
+    if (diet === null){
+      title = 'Average <br> Carbon <br> Footprint'
+      data = [
+        ['Diet', averageData[0]],
+        ['Travel', averageData[1]],
+        ['Flights', averageData[2]],
+        ['Heating', averageData[3]],
+        ['Recycling', averageData[4]]
+      ];
+    };
+  }
+  chooseData()
+
+  const options = {
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: 0,
       plotShadow: false
     },
     title: {
-      text: 'Your<br>Carbon<br>Foot Print',
+      text: title,
       align: 'center',
       verticalAlign: 'middle',
       y: 60
@@ -57,22 +103,19 @@ const options = {
       type: 'pie',
       name: '.. of Total Footprint.',
       innerSize: '50%',
-      data: [
-        ['Diet', 20],
-        ['Travel', 20],
-        ['Flights', 20],
-        ['Heating', 20],
-        ['Recycling', 20],
-      ]
+      data: data
     }]
   }
+
+  return (
+    <div>
+      <HighchartsReact
+      highcharts={Highcharts}
+      options={options}
+      />
+    </div>
+    )
+  }
  
-const Chart = () => <div>
-  <HighchartsReact
-    highcharts={Highcharts}
-    options={options}
-  />
-</div>
- 
-render(<Chart />, document.getElementById('root'))
+// render(<Chart />, document.getElementById('root'))
 export default Chart;

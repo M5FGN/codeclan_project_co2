@@ -14,8 +14,7 @@ const Main = () => {
     useEffect(() => {
         getUsers().then(allUsers => setUsers(allUsers));
     },[]);
-    
-
+  
     // Calculate the total carbon data of a given user
     const totalCarbonCalc = (user) => {
         const totalCarbonData = [
@@ -23,11 +22,7 @@ const Main = () => {
             user.footprint.air,
             user.footprint.heating,
             user.footprint.recycling,
-            user.footprint.commute.car,
-            user.footprint.commute.train,
-            user.footprint.commute.bus,
-            user.footprint.commute.cycling,
-            user.footprint.commute.walk
+            user.footprint.commute.travelTotal
         ];
         let total = 0;
         for (let val of totalCarbonData){
@@ -38,6 +33,61 @@ const Main = () => {
         }
         setTotalCarbon(total);
     };
+    
+    // For each user in users
+        // const totalDiet = 
+    let averageData = [];
+    let averageTotal = 0;
+
+    const averageCalc = () => {
+        const len = users.length;
+
+        let totDiet = 0;
+        let totTravel = 0;
+        let totAir = 0;
+        let totHeating = 0;
+        let totRecycling = 0;
+
+        for (let user of users){
+
+            let diet = user.footprint.diet;
+            let travel = user.footprint.commute.travelTotal;
+            let air = user.footprint.air;
+            let heating = user.footprint.heating;
+            let recycling = user.footprint.recycling;
+
+            if (diet !== null){
+                totDiet += diet;
+            };
+            if (travel !== null){
+                totTravel += travel;
+            };
+            if (air !== null){
+                totAir += air;
+            };
+            if (heating !== null){
+                totHeating += heating;
+            };
+            if (recycling !== null){
+                totRecycling += recycling;
+            };
+        }
+        const avgDiet = parseInt(totDiet / len);
+        const avgTravel = parseInt(totTravel / len);
+        const avgAir = parseInt(totAir / len);
+        const avgHeating = parseInt(totHeating / len);
+        const avgRecycling = parseInt(totRecycling / len);
+
+        averageData = [avgDiet, avgTravel, avgAir, avgHeating, avgRecycling];
+        
+        for (let val of averageData){
+            averageTotal += val;
+        }
+      
+    }
+    
+    averageCalc()
+
 
     return(
         <div class="main">
@@ -57,7 +107,7 @@ const Main = () => {
                     < InputContainer totalCarbonCalc={totalCarbonCalc} users={users} setUsers={setUsers} selectedUser={selectedUser} setSelectedUser={setSelectedUser}/>
                 </div>
                 
-                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon}/> </div>:null}
+                {selectedUser !== null ? <div class="output">< OutputContainer user={selectedUser} totalCarbon={totalCarbon} averageData={averageData} averageTotal={averageTotal}/> </div>:null}
                 
             </div>
 
