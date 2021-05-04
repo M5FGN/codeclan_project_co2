@@ -9,7 +9,7 @@ const OutputTotal = ({totalCarbon, averageTotal}) => {
             const val = averageTotal - totalCarbon
             string = `That's ${val} kg less than average!`
         }
-        if (totalCarbon == averageTotal){
+        if (totalCarbon === averageTotal){
             string = "That's the same as average!"
         }
         if (totalCarbon > averageTotal){
