@@ -39,45 +39,26 @@ const Main = () => {
     let averageData = [];
 
     const averageCalc = () => {
+
         const len = users.length;
 
-        let totDiet = 0;
-        let totTravel = 0;
-        let totAir = 0;
-        let totHeating = 0;
-        let totRecycling = 0;
+        // Must be 0,0.. to avoid index issues
+
+        let totalsArray = [0,0,0,0,0]
 
         for (let user of users){
+            const d = user.footprint;
+            const userData = [d.diet, d.travel, d.air, d.heating, d.recycling]
 
-            let diet = user.footprint.diet;
-            let travel = user.footprint.travel;
-            let air = user.footprint.air;
-            let heating = user.footprint.heating;
-            let recycling = user.footprint.recycling;
+            for (let i=0; i<userData.length; i++){
+                if (userData[i] !== null){
+                    totalsArray[i] = userData[i]
+                };
+            };
+        }; 
 
-            if (diet !== null){
-                totDiet += diet;
-            };
-            if (travel !== null){
-                totTravel += travel;
-            };
-            if (air !== null){
-                totAir += air;
-            };
-            if (heating !== null){
-                totHeating += heating;
-            };
-            if (recycling !== null){
-                totRecycling += recycling;
-            };
-        }
-        const avgDiet = (totDiet / len);
-        const avgTravel = (totTravel / len);
-        const avgAir = (totAir / len);
-        const avgHeating = (totHeating / len);
-        const avgRecycling = (totRecycling / len);
-
-        averageData = [avgDiet, avgTravel, avgAir, avgHeating, avgRecycling];
+        averageData = totalsArray.map(val => val/len);
+        
     }
     
     averageCalc()
