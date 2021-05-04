@@ -15,17 +15,17 @@ const UserSelect = ({users, onSelectedUser, getForm}) => {
 
     return(
         <div>
-            <div>
+            <div class="user_select">
                 <p> A user account is needed to use this calculator ... </p> 
                 <h4>Select an existing User ... </h4>
-            <select defaultValue='' onChange={handleSelect} name='userList'>
+            <select defaultValue='' onChange={handleSelect} name='userList' id="userList">
                 {/* Set our default select to an empty one, else you can't click on first user to render */}
                 <option value='' defaultValue='selected'>Select a user</option>
                 {usersOptions}
             </select>
         
                 <h4>Or create a New User ... </h4>
-                <button class="button" type='submit' value='Create Account' onClick={() => {getForm(true)}}>Create New User</button>
+                <button id="newuserbutton" class="button" type='submit' value='Create Account' onClick={() => {getForm(true)}}>Create New User</button>
             </div>
 
         </div>

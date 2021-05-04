@@ -112,17 +112,17 @@ const InputContainer = ({users, totalCarbonCalc, setUsers, selectedUser, setSele
 
              {selectedUser ? 
                 <div>
-                    <h4>Return to Home page</h4>
+                    <h4 id="rtnHome">Return to Home page</h4>
                     <p>Return to the Home Page to Log In as a different user ...</p>
-                    <button class="button" type='submit' onClick={() => {setSelectedUser(null)}}>Return to Home</button>
+                    <button id="returnbtn" class="button" type='submit' onClick={() => {setSelectedUser(null)}}>Return to Home</button>
                 </div>
                 :null }
 
             {selectedUser ?
                 <div>
-                    <h4>Delete your User Account</h4>
+                    <h4 id="delUser">Delete your User Account</h4>
                     <p>To remove your account, click 'Remove Account' ...</p>
-                    <button class="button" type='submit' onClick={() => {handleRemove(selectedUser)}}>Remove Account</button>
+                    <button id="deletebtn" class="button" type='submit' onClick={() => {handleRemove(selectedUser)}}>Remove Account</button>
                 </div>
                 :null}
         </div>
