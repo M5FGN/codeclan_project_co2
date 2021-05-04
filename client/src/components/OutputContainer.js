@@ -21,7 +21,7 @@ const OutputContainer = ({user, totalCarbon}) => {
                 <Output user={user}/>
             </div>
     
-                < Chart />
+                < Chart user={user}/>
 
         </div>
     )
