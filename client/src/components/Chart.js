@@ -23,40 +23,45 @@ import HighchartsReact from 'highcharts-react-official'
 // Once a new user adds Diet the list should delete all other elements and only show Diet, for each form the user completes a new line 
         //should be added to the list with the relevant key and value.
 
-// For an Existing User the List should populate with the figures they have entered previously then update as they change the numbers. - DONE
-        //The title should be "Your Carbon Footprint" - DONE (ish. Only renders if we have a user)
+// For an Existing User the List should populate with the figures they have entered previously then update as they change the numbers.
+        //The title should be "Your Carbon Footprint"
  
-const Chart = ({user}) => 
+const Chart = ({user, averageData}) => 
 {
   const diet = user.footprint.diet;
   const air = user.footprint.air;
   const heating = user.footprint.heating;
   const recycling = user.footprint.recycling;
-  const car = user.footprint.commute.car;
   const travelTotal = user.footprint.commute.travelTotal;
 
   
   let title = '';
-  const chooseTitle = () => {
+  let data = [];
+  const chooseData = () => {
     // If diet is null, this means there is no user data yet. So render the average
     // If diet is not null, this means we have some user data, so render their personal chart
     if (diet !== null){
       title = 'Your <br> Carbon <br> Footprint'
+      data = [
+        ['Diet', diet],
+        ['Travel', travelTotal], 
+        ['Flights', air],
+        ['Heating', heating],
+        ['Recycling', recycling]
+      ];
     };
     if (diet === null){
       title = 'Average <br> Carbon <br> Footprint'
+      data = [
+        ['Diet', averageData[0]],
+        ['Travel', averageData[1]],
+        ['Flights', averageData[2]],
+        ['Heating', averageData[3]],
+        ['Recycling', averageData[4]]
+      ];
     };
   }
-  chooseTitle()
-
-
-  const data = [
-    ['Diet', diet],
-    ['Travel', car], // This will need changed to travelTotal once my pull has been merged
-    ['Flights', air],
-    ['Heating', heating],
-    ['Recycling', recycling]
-  ];
+  chooseData()
 
   const options = {
     chart: {

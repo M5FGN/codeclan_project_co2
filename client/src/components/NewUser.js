@@ -26,6 +26,7 @@ const NewUser = ({addUser}) => {
             recycling: null,
             heating: null
         }
+        
         newUser(formUserData).then((data) => addUser(data))
 
     };
