@@ -61,6 +61,10 @@ You have been approached by a lifestyle consultancy compamy dealing with environ
 
 # App Screenshots
 
+## Screenshot of App Home Page
 ![App Home Page](readmeimages/homepage.png) 
+
+## Screenshot of Inputs and Outputs
+![Full Page Screenshot](readmeimages/fullscreenshot.png) 
 
 
