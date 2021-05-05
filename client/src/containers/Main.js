@@ -82,10 +82,11 @@ const Main = () => {
         
 
         // And a small loop, for looping through the averageData array, adding them all together, to our averageTotal
+        let runTotal = 0;
         for (let val of averageData){
-            averageTotal += val;
+            runTotal += val;
         }
-        
+        averageTotal = parseInt(runTotal);
     };
     averageCalc();
 
