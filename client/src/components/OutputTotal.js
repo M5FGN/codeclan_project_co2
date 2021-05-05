@@ -23,8 +23,12 @@ const OutputTotal = ({totalCarbon, averageTotal}) => {
     return (
         <div>
 
-            <h4>Your total annual Carbon Foot Print is ... <p class="odo">< OdoTest totalCarbon={totalCarbon} /></p>Kilograms</h4>
+
+           
+
+            <h4>Your total annual Carbon Foot Print is ... <p class="odo" id = 'totalCarbon'>< OdoTest totalCarbon={totalCarbon} /></p>Kilograms</h4>
             <h4>{string}</h4>
+
             <hr/>
 
         </div>
