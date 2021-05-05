@@ -38,22 +38,22 @@ const NewUser = ({addUser}) => {
                 <p>
                     <label>Username: </label>
                     <br></br>
-                    <input onChange={onChange} type='text' name='username' id='username' required></input>
+                    <input onChange={onChange} type='text' name='username'  data-testid='username' id='username' required></input>
                 </p>
 
                 <p>
                     <label>First Name: </label>
                     <br></br>
-                    <input onChange={onChange} type='text' name='forename' id='forename' required></input>
+                    <input onChange={onChange} type='text' name='forename' data-testid='firstname' id='forename' required></input>
                 </p>
 
                 <p>
                     <label>Last Name: </label>
                     <br></br>
-                    <input onChange={onChange} type='text' name='lastname' id='surname' required></input>
+                    <input onChange={onChange} type='text' name='lastname' data-testid='surname' id='surname' required></input>
                 </p>
 
-                <input class="button" type='submit' value='Create User' id='submit'></input>
+                <input className="button" type='submit' value='Create User' data-testid= 'button'id='submit'></input>
 
             </form>
         
