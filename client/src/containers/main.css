@@ -1,0 +1,159 @@
+body {
+    background-image: url(../components/ProjectCO2.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white {
+    background-color: white;
+    margin: 50px;
+    position: relative;
+    opacity: 92%;
+    border-radius: 10px;
+    padding-bottom: 40px;
+}
+
+.input_output{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.input, .output{
+    width: 40%;
+    margin: 20px;
+} 
+
+/* .input {
+    padding-right: 10px;
+} */
+.output{
+    border-radius: 10px;
+    border: 1px solid #3ca55c;
+    padding: 10px 0px;
+} 
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.logo, .header_text {
+    width: 45%;
+} 
+
+.header_text {
+    padding-top: 30px;
+}
+
+.logo_img {
+    height: 150px;
+    width: 300px;
+  }
+
+form {
+    border: 1px solid  #3ca55c;
+    margin: 20px;
+    border-radius: 10px;
+    text-align: left;
+    padding-right: 20px;
+    /* padding-left: 20px; */
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-left: 20px;
+}
+
+label, h4 {
+    font-size: 18px;
+    color: #3ca55c;
+    font-family: 'Monda', sans-serif;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Monda', sans-serif;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+label {
+    padding-left: 20px;
+    padding-right: 30px;
+}
+
+h2 {
+    font-family: 'Monda', sans-serif;
+    font-size: 24px;
+    color: #3ca55c;
+}
+
+select { 
+    padding: 6px;
+}
+
+input[type="number"], input[type="text"] {
+    padding: 6px;
+    margin-left: 20px;
+}
+
+p {
+    font-family: 'Monda', sans-serif;
+}
+
+#new_user_form {
+    text-align: center;
+}
+
+.outtxt {
+    font-family: 'Monda', sans-serif;
+    list-style-type: none;
+    font-size: 18px;
+    color: #3ca55c;
+    padding: 0 20px;
+}
+
+.odo {
+    font-size: 80px;
+    margin: 0px;
+}
+
+hr {
+    width: 75%;
+}
+
+@media screen and (max-width: 1085px) {
+    .input, .output{
+        width: 90%;
+        margin: 20px;
+    } 
+    form {
+        text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 830px) {
+    .header_text {
+        padding-top: 0px;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    .logo, .header_text {
+        width: 90%;
+    } 
+  }
+
+  @media screen and (max-width: 500px) {
+    .logo_img {
+        height: 100px;
+        width: 200px;
+      }
+  }
