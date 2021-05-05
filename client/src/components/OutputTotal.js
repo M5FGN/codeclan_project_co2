@@ -27,9 +27,6 @@ const OutputTotal = ({totalCarbon, averageTotal}) => {
             <h4>{string}</h4>
             <hr/>
 
-        
-            {/* <h4>Total Carbon:</h4>
-            <p>{totalCarbon}</p> */}
         </div>
     )
 }

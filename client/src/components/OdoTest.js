@@ -20,7 +20,7 @@ class OdoTest extends React.Component {
   render() {
     const { odometerValue } = this.state;
     return (
-      <div>
+      <div id="odo">
 
         <Odometer format="d" duration={1000} value={this.props.totalCarbon} />
       </div>

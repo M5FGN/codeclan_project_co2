@@ -53,7 +53,7 @@ const NewUser = ({addUser}) => {
                     <input onChange={onChange} type='text' name='lastname' id='surname' required></input>
                 </p>
 
-                <input class="button" type='submit' value='Create User' id='submit'></input>
+                <input class="button" type='submit' value='Create User' id='createUser'></input>
 
             </form>
         

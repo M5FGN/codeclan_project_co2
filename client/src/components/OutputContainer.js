@@ -7,21 +7,18 @@ const OutputContainer = ({user, totalCarbon, averageData, averageTotal}) => {
 
     return (
         <div>
-            {/* <div>
-                {/* <h4>Username: {user.username}</h4> */}
-                {/* <h4>Carbon Foot Print of {user.forename} {user.surname}</h4> */}
-            {/* </div> */}
         
             {totalCarbon > 0 ?
                 < OutputTotal totalCarbon={totalCarbon} averageTotal={averageTotal}/>
                 : null}
 
             <div>
-                {/* <h4>{user.forename}, this is how your <br></br>Carbon Foot Print is made up ...</h4> */}
                 <Output user={user}/>
             </div>
+
     
                 < Chart user={user} averageData={averageData}/>
+
 
         </div>
     )
