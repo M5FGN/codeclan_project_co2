@@ -47,7 +47,11 @@ const Diet = ({user, newData, getForm, figures}) => {
                     <label for="meat_none">I don't eat meat.</label>
                 </p>
 
-                <input class="button" type="submit" value="Calculate" id= "submit" name="submit" />        
+
+                   
+
+                <input class="button" type="submit" value="Calculate" name="submit" id="dietCalculate" />        
+
     
     </form>
 
