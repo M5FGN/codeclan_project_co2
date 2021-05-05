@@ -3,6 +3,12 @@
 ## Project Brief
 You have been approached by a lifestyle consultancy compamy dealing with environmental sustainability. Your task is to build a personal CO2 Footprint checker app that calculates a users CO2 Footprint based on their lifestyle.
 
+## Devleopment Team
+
+* [Colin Morrison](https://github.com/Cozzmozza) 
+* [Iain McDulling](https://github.com/EenMacFullstack)
+* [Mary Fagan](https://github.com/M5FGN)
+
 ## Technologies Used
 
 ### App Development
