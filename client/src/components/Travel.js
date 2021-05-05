@@ -18,6 +18,21 @@ const Travel = ({user, newData, getForm, figures}) => {
 
 
 // Five onChange functions for checkboxes to toggle render of miles per type of transport inputs
+
+    // const onChange = (e) => {
+    //     // Take the 'name' of the event
+    //     // convert 'name' string to name.. object?
+    //     // if name === null (referring to the state name)
+    //     // 'set' + 'Name', equals setTrain (will need to capitalise first letter)
+    //     // 'on' + 'Name', equals onTrain
+    //     // render with:
+    //         // onChange={onTrain}
+    //         // name, id, and for = {miles_'name'}
+    //         // Text to = `Miles travelled by ${Name} per day`
+    //     const nameString = e.target.name; // Grab the name
+    //     const changeMethodString = 'set' + nameString; // Create the setName e.g. setTrain, as a string
+    // }
+
     const onTrainChange = () => {
         if (train === null){
             setTrain(
@@ -88,6 +103,7 @@ const Travel = ({user, newData, getForm, figures}) => {
         }
     }
 
+// Info for calculations to SI
     const multiplier = 5*52;
     const api = figures.transport;
 
